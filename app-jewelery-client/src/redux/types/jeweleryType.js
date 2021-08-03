@@ -1,0 +1,2 @@
+
+export const UPDATESTATE = "JEWELERY/UPDATESTATE";
