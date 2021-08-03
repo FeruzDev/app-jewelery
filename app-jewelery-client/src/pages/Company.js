@@ -1,6 +1,7 @@
 import React from 'react';
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import {getText} from "../locales";
 
 const Company = () => {
     return (
@@ -11,7 +12,7 @@ const Company = () => {
             <div className="title">
                 <div></div>
 
-                <h2>О компании</h2>
+                <h2>{getText("C1")}</h2>
                 <div></div>
             </div>
 
@@ -20,7 +21,7 @@ const Company = () => {
 
                 <h1>Gemstone Certification of Uzbekistan</h1>
 
-                <h3>Проверьте подлинность ваших сертификатов</h3>
+                <h3>{getText("C2")}</h3>
 
             </div>
 
@@ -32,25 +33,15 @@ const Company = () => {
                     </div>
                     <div className="col-6">
 
-                        <h3>Проверьте подлинность ваших сертификатов</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis nisi nascetur donec amet
-                            enim. Id aenean urna vitae sed. Blandit curabitur amet at lorem. Nunc phasellus tellus
-                            ullamcorper interdum tincidunt aenean at proin. In eu urna, ut porta quis vel. Mattis
-                            adipiscing consectetur egestas nulla mus libero facilisi morbi turpis. Id accumsan, est sed
-                            viverra. Nulla ornare at lacus metus libero aliquet lorem. Augue vitae, egestas parturient
-                            dictum consectetur facilisis. </p>
+                        <h3>{getText("C3")}</h3>
+                        <p>{getText("C4")}</p>
                     </div>
 
 
                     <div className="col-6">
 
-                        <h3>Проверьте подлинность ваших сертификатов</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis nisi nascetur donec amet
-                            enim. Id aenean urna vitae sed. Blandit curabitur amet at lorem. Nunc phasellus tellus
-                            ullamcorper interdum tincidunt aenean at proin. In eu urna, ut porta quis vel. Mattis
-                            adipiscing consectetur egestas nulla mus libero facilisi morbi turpis. Id accumsan, est sed
-                            viverra. Nulla ornare at lacus metus libero aliquet lorem. Augue vitae, egestas parturient
-                            dictum consectetur facilisis. </p>
+                        <h3>{getText("C5")}</h3>
+                        <p> {getText("C6")}</p>
                     </div>
 
                     <div className="col-6">
@@ -64,13 +55,8 @@ const Company = () => {
                     </div>
                     <div className="col-6">
 
-                        <h3>Проверьте подлинность ваших сертификатов</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis nisi nascetur donec amet
-                            enim. Id aenean urna vitae sed. Blandit curabitur amet at lorem. Nunc phasellus tellus
-                            ullamcorper interdum tincidunt aenean at proin. In eu urna, ut porta quis vel. Mattis
-                            adipiscing consectetur egestas nulla mus libero facilisi morbi turpis. Id accumsan, est sed
-                            viverra. Nulla ornare at lacus metus libero aliquet lorem. Augue vitae, egestas parturient
-                            dictum consectetur facilisis.</p>
+                        <h3>{getText("C7")}</h3>
+                        <p>{getText("C8")}</p>
                     </div>
 
 

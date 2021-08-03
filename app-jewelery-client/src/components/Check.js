@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { sertification, updateState} from "../redux/actions/SerAction";
 import {connect} from "react-redux";
 import {AvForm, AvField } from 'availity-reactstrap-validation';
+import {getText} from "../locales";
 
 const Check = (props) => {
 
@@ -13,7 +14,7 @@ const Check = (props) => {
     return (
         <div className='check d-flex'>
            <div className="left">
-               <h1>Впешите ID своего <br/>сертификата</h1>
+               <h1 className="pr-3">{getText("checkTitle")}</h1>
                <img src="/images/CHECK.png" alt="CHECK.png"/>
            </div>
             <div className="right">
@@ -28,7 +29,7 @@ const Check = (props) => {
                         type="text"
                         placeholder='Ваше ID'
                     />
-                    <button > Проверить</button>
+                    <button > {getText("checkButton")}</button>
 
                 </AvForm>
                     <img src="/images/icon/loupe.png" alt=""/>

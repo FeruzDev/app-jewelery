@@ -17,12 +17,15 @@ const Ser = (props) => {
 
         props.updateState({modalOpendOne: !props.modalOpendOne})
 
+
+
     }
 
 
     const mTwo = () => {
 
         props.updateState({modalOpendTwo: !props.modalOpendTwo})
+
 
     }
 
@@ -31,7 +34,30 @@ const Ser = (props) => {
 
         props.updateState({modalOpendThree: !props.modalOpendThree})
 
+
     }
+
+
+    const mOne2 = () => {
+
+        props.updateState({modalOpendOne2: !props.modalOpendOne2})
+
+    }
+
+
+    const mTwo2 = () => {
+
+        props.updateState({modalOpendTwo2: !props.modalOpendTwo2})
+
+    }
+
+
+    const mThree2 = () => {
+
+        props.updateState({modalOpendThree2: !props.modalOpendThree2})
+
+    }
+
 
     return (
         <div className="ser">
@@ -197,8 +223,107 @@ const Ser = (props) => {
 
             </div>
 
-            <Modal isOpen={props.modalOpendOne} className="modal-style">
-                <button onClick={mOne} className='close-x '> x</button>
+
+            <div className="characters-mob">
+                <div className="container">
+                    <div className="title mt-5">
+                        <div></div>
+
+                        <h2>Характеристики вставок</h2>
+                        <div></div>
+                    </div>
+
+                    <div className="row">
+
+
+                        {/*for   characteristics */}
+
+
+                        {
+                            props.data.diamonds?.map(item => (
+
+                                <div className="col-md-6">
+                                    <div className="st">
+                                        <h3>Diamond</h3>
+                                        <div className="stChild">
+                                            <span>{item.diamond + " ct"}</span>
+                                        </div>
+                                        <h6>таблица</h6>
+                                    </div>
+                                    {
+                                        item.characteristics?.map(item2 => (
+                                            <div className="row">
+
+                                                <div className="st w-100 pl-3">
+
+                                                    <h3>{item2.name}</h3>
+
+                                                    <div className="row w-100  ">
+                                                        {item2.valueOne ?
+                                                            <div className={`col-${item2.valueTwo ? "6" : "12"} p-3`}>
+                                                                <div className="stChild">
+                                                                    <span>{item2.valueOne}</span>
+                                                                </div>
+                                                            </div> : ""
+                                                        }
+                                                        {item2.valueTwo ?
+                                                            <div className="col-6 p-3">
+                                                                <div className="stChild">
+                                                                    <span>{item2.valueTwo}</span>
+                                                                </div>
+                                                            </div> : ""
+                                                        }
+                                                    </div>
+                                                    <button
+                                                        onClick={item2.name === "Color Scale" ? mOne2 : item2.name === "Clarity scale" ? mTwo2 : item2.name === "Cut scale" ? mThree2 : ""}
+                                                        className="table-button"><h6>таблица</h6>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        ))
+                                    }
+
+
+                                </div>
+                            ))
+                        }
+
+
+                        <div className="row w-100 ">
+
+
+                            <div className="col-md-6 ">
+                                <div className="st pl-3">
+                                    <h3>Комментарий</h3>
+                                    <div className="stChildT">
+                                        <span>VVVV</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div className="col-md-6">
+                                <div className="st pr-5 pl-3">
+                                    <h3>Эксперт-геммолог</h3>
+                                    <div className="stChildB">
+                                        <span>{props.data.expertFirstName?.substr(0, 1)}. {props.data.expertLastName}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <Modal isOpen={props.modalOpendOne}  className=" modal-style">
+                <button onClick={mOne} className='close-x '> &#10006;</button>
 
                 <p>Система классификации бриллиантов от D до Z, измеряет степень бесцветности, сравнивая камень при
                     контролируемом освещении и точных условиях просмотра с эталонными камнями установленной цветовой
@@ -206,7 +331,7 @@ const Ser = (props) => {
                 </p>
 
                 <h4>Color Scale</h4>
-                <table>
+                <table  >
                     <tr>
                         <th>Colorless</th>
                         <th></th>
@@ -394,8 +519,8 @@ const Ser = (props) => {
             </Modal>
 
 
-            <Modal isOpen={props.modalOpendOne} className="modal-style-mob">
-                <button onClick={mOne} className='close-x '> x</button>
+            <Modal isOpen={props.modalOpendOne2} className="modal-style-mob">
+                <button onClick={mOne2} className='close-x '>&#10006;</button>
 
                 <h4>Color Scale</h4>
 
@@ -583,7 +708,7 @@ const Ser = (props) => {
 
             </Modal>
             <Modal isOpen={props.modalOpendTwo} className="modal-style2 modal-style">
-                <button onClick={mTwo} className='close-x '> x</button>
+                <button onClick={mTwo} className='close-x '> &#10006;</button>
 
                 <p>
                     В верхней части - обозначения бриллиантов с минимальным количеством включений, в нижней обозначения
@@ -681,8 +806,8 @@ const Ser = (props) => {
                 </table>
             </Modal>
 
-            <Modal isOpen={props.modalOpendTwo} className=" modal-style-mob">
-                <button onClick={mTwo} className='close-x '> x</button>
+            <Modal isOpen={props.modalOpendTwo2} className=" modal-style-mob">
+                <button onClick={mTwo2} className='close-x '> &#10006;</button>
 
 
                 <h4>Сlarity scale</h4>
@@ -846,7 +971,7 @@ const Ser = (props) => {
             </Modal>
 
             <Modal isOpen={props.modalOpendThree} className="modal-style3 modal-style">
-                <button onClick={mThree} className='close-x '> x</button>
+                <button onClick={mThree} className='close-x '>&#10006;</button>
 
                 <p>
                     Шкала качества огранки (отличная, очень хорошая, хорошая, удовлетворительная, плохая).
@@ -905,8 +1030,8 @@ const Ser = (props) => {
                 </table>
             </Modal>
 
-            <Modal isOpen={props.modalOpendThree} className="modal-style-mob">
-                <button onClick={mThree} className='close-x '> x</button>
+            <Modal isOpen={props.modalOpendThree2} className="modal-style-mob">
+                <button onClick={mThree2} className='close-x '> &#10006;</button>
 
 
 
@@ -984,6 +1109,13 @@ const mapStateToProps = (state) => {
         modalOpendOne: state.serData.modalOpendOne,
         modalOpendTwo: state.serData.modalOpendTwo,
         modalOpendThree: state.serData.modalOpendThree,
+
+
+        modalOpendOne2: state.serData.modalOpendOne2,
+        modalOpendTwo2: state.serData.modalOpendTwo2,
+        modalOpendThree2: state.serData.modalOpendThree2,
+
+
 
     }
 }

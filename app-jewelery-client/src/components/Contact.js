@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import axios from "axios";
+import {getText} from "../locales";
 
 
 class Contact extends Component {
@@ -51,13 +52,13 @@ class Contact extends Component {
 
 
 
-                     <h1>Еще остались вопросы и вы не нашли ответа на него?</h1>
-                       <h2>Оставьте ваши контакты и мы ответим на все ваши вопросы</h2>
+                     <h1>{getText("Q1")}</h1>
+                       <h2>{getText("Q2")}</h2>
 
                             <form className="appLicationRequest" onSubmit={this.submitHandler}>
-                                <input name="fio"   type="text" placeholder="Ваше имя " className="form-control  " onChange={this.changeHandler}/>
-                                <input type="text" name="phone"  placeholder="Телефон" className="form-control  " onChange={this.changeHandler}/>
-                                <button type="submit" disabled={this.state.dis} className="btn   btn-block">Отправить</button>
+                                <input name="fio"   type="text" placeholder={getText("Q3")}   className="form-control  " onChange={this.changeHandler}/>
+                                <input type="text" name="phone"  placeholder={getText("Q4")} className="form-control  " onChange={this.changeHandler}/>
+                                <button type="submit" disabled={this.state.dis} className="btn   btn-block">{getText("Q5")}</button>
                             </form>
 
 

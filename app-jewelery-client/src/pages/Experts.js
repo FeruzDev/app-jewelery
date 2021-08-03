@@ -1,6 +1,7 @@
 import React from 'react';
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import {getText} from "../locales";
 
 const Experts = () => {
     return (
@@ -8,16 +9,16 @@ const Experts = () => {
             <div className="title">
                 <div></div>
 
-                <h2>Наши</h2>
+                <h2>{getText("HE1")}</h2>
                 <div></div>
             </div>
 
 
             <div className="sub-title">
 
-                <h1>Эксперты</h1>
+                <h1>{getText("HE2")} </h1>
 
-                <h3>У нас короче работют хорошие эксперты</h3>
+                <h3>{getText("HE4")}</h3>
 
             </div>
 

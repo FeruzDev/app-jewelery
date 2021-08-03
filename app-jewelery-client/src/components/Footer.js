@@ -1,15 +1,51 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import {SITE_LANG} from "../tools/constants";
 
 const Footer = () => {
+
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+
+
+    const  changeLang = (lang) =>{
+        localStorage.setItem(SITE_LANG, (lang));
+        window.location.reload();
+    }
     return (
         <div className='footer'>
             <div className="container">
                 <div className="row">
                     <div className="col-4">
-                        <button>
-                            <img src="/images/icon/eath.png" alt=""/>
-                            Русский
-                        </button>
+                        {/*<button>*/}
+                        {/*    <img src="/images/icon/eath.png" alt=""/>*/}
+                        {/*    Русский*/}
+                        {/*</button>*/}
+
+                        <Dropdown className="lang-btn" isOpen={dropdownOpen} toggle={toggle}>
+                            <DropdownToggle caret>
+                                <img src="/images/icon/eath.png" alt=""/>
+                                {localStorage.getItem("language") === "ru" ? " Русский" : " O'zbek tili" }
+
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem   onClick={() => changeLang('ru')}>
+
+                                    Русский
+                                </DropdownItem>
+
+                                <DropdownItem  onClick={() => changeLang('uz')} >
+
+                                    O'zbek tili
+                                </DropdownItem>
+
+
+
+                            </DropdownMenu>
+                        </Dropdown>
+
                     </div>
                     <div className="col-4">
                         <img src="/images/icon/logo2.png" alt=""/>

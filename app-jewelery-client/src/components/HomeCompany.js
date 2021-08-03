@@ -1,7 +1,5 @@
 import React from 'react';
-import Accordion from "./Accordion";
-import Contact from "./Contact";
-import Footer from "./Footer";
+import {getText} from "../locales";
 
 const HomeCompany = () => {
 
@@ -22,7 +20,7 @@ const HomeCompany = () => {
             <div className="title">
                 <div />
 
-                <h2>О компании</h2>
+                <h2>{getText("HM1")}</h2>
                 <div />
             </div>
 
@@ -30,7 +28,7 @@ const HomeCompany = () => {
 
                     <h1>Gemstone Certification of Uzbekistan</h1>
 
-                    <h3>Проверьте подлинность ваших сертификатов</h3>
+                    <h3>{getText("HM2")}</h3>
 
                 </div>
 
@@ -38,26 +36,21 @@ const HomeCompany = () => {
 
                 <ul className="nav nav-tabs" role="tablist">
                     <li className="nav-item active">
-                        <a className="nav-link " data-toggle="tab" href="#tabs-1" role="tab">Что это такое?</a>
+                        <a className="nav-link " data-toggle="tab" href="#tabs-1" role="tab">{getText("HM3")}</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Как это работает?</a>
+                        <a className="nav-link" data-toggle="tab" href="#tabs-2" role="tab">{getText("HM4")}</a>
                     </li>
 
                     <li className="nav-item">
-                        <a className="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Что вы получите?</a>
+                        <a className="nav-link" data-toggle="tab" href="#tabs-3" role="tab">{getText("HM5")}</a>
                     </li>
                 </ul>
                 <div className="tab-content">
                     <div className="tab-pane active" id="tabs-1" role="tabpanel">
                         <div  style={{backgroundColor: '#F3F9FB'}} className="d-flex main-tab-e">
 
-                        <p>GIA - это система в которой специалисты
-                            оценщики добавляют в базу ваши данные
-                            камней. Это
-                            документ подтверждающий
-                            ценность ваших драгоценных камней
-                            {/*<img src="/images/chtoTeskt.png" alt=""/>*/}
+                        <p> {getText("HM6")}
                         </p>
                         <img src="/images/nav1.png" alt="nav1.png"/>
 
@@ -69,20 +62,7 @@ const HomeCompany = () => {
                         <div  style={{backgroundColor: '#F3F9FB'}} className="d-flex main-tab-e">
 
 
-                        <p>Чтобы сделать сертификат для Ваших  ювелирных изделий, от вас требуется, наличие
-                            ювелирного
-                            изделия, которое имеет  драгоценные или полудрагоценные камни.
-                             Дальше вам нужно обратиться к
-                            одному из  наших специалистов геомологов, которые есть
-                            у нас на сайте. После, того как Ваше
-                            изделие
-                            оценят, в течение 24 часов оно попадет в базу
-                            GCU и вы сможете проверить его введя
-                            уникальный 12 значный код.
-
-
-                            {/*<img src="/images/chtoTeskt.png" alt=""/>*/}
-
+                        <p> {getText("HM7")}
                         </p>
                         <img src="/images/nav2.png" alt="nav2.png"/>
                         </div>
@@ -91,12 +71,7 @@ const HomeCompany = () => {
                     <div className="tab-pane" id="tabs-3" role="tabpanel">
                         <div  style={{backgroundColor: '#F3F9FB'}} className="d-flex main-tab-e">
 
-                        <p>Сертификат на бриллиант — важный документ,
-                               подтверждающий соответствие вашего
-                               конкретного
-                               камня стандартам, используемым
-                               нашей лабораторией при его геммологической  оценке.
-                               {/*<img src="/images/chtoTeskt.png" alt=""/>*/}
+                        <p> {getText("HM8")}
                            </p>
                            <img src="/images/nav3.png" alt="nav3.png"/>
                        </div>

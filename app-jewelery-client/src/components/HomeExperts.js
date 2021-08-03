@@ -1,4 +1,5 @@
 import React from 'react';
+import {getText} from "../locales";
 
 const HomeExperts = () => {
     return (
@@ -7,16 +8,15 @@ const HomeExperts = () => {
             <div className="title" style={{marginTop: "60px"}}>
                 <div></div>
 
-                <h2>Наши</h2>
+                <h2>{getText('HE1')}</h2>
                 <div></div>
             </div>
 
 
             <div className="sub-title">
 
-                <h1>Эксперты</h1>
-                <h3>Проверенные эксперты гемологи имеющие право
-                    заносить украшения в базу GCU</h3>
+                <h1>{getText('HE2')}</h1>
+                <h3 className='home-sub'  >{getText('HE3')}</h3>
             </div>
 
 

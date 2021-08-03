@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {getText} from "../locales";
 
 const Accordion = () => {
     const accordionData = [
@@ -35,6 +36,44 @@ const Accordion = () => {
         },
 
     ];
+
+
+
+    const accordionDataUz = [
+        {
+            id: '0',
+            title: ' Sertifikat menga nima beradi?',
+            content: `  Sizning buyumlaringiz qiymati avtomatik ravishda oshadi va siz zargarlik buyumlaringizni qimmatroq narxga sotishingiz mumkin`,
+            isActive: false
+
+        },
+        {
+            id: '1',
+            title: ' Sertifikatni qanday olishim mumkin? ',
+            content: ` Sertifikatni olish uchun siz sertifikat beradigan ishonchli baholovchilarga murojaat qilishingiz kerak. `,
+            isActive: false
+        },
+        {
+            id: '2',
+            title: 'Sertifikat olish uchun qancha vaqt kerak?',
+            content: ` Raqamli sertifikat ishlab chiqarish vaqti 1 soatdan 24 soatgacha. Qog'oz sertifikati 1 soatdan 72 soatgacha ishlab chiqariladi. `,
+            isActive: false
+        },
+        {
+            id: '3',
+            title: 'Sertifikat qancha turadi?',
+            content: `Bitta elektron sertifikatni olish narxi 10.000 so'm. Qog'oz sertifikatni narxi 100.000 so'm `,
+            isActive: false
+        },
+        {
+            id: '4',
+            title: '  Sertifikatning haqiqiyligini qanday tekshirish mumkin?',
+            content: ` Haqiqiylik sizga berilgan 12 xonali sertifikat kodi orqali tasdiqlanadi.`,
+            isActive: false
+        },
+
+    ];
+
     let indexPlus;
 
     const [active, setActive] = useState(0);
@@ -51,11 +90,10 @@ const Accordion = () => {
 
     return (
         <div className="accordionTable container">
-            <h3 className="newPagesTitle">Часто задаваемы вопросы</h3>
-            <p className="acTitle">Lorem ipsum dolor sit amet,  consectetur adipiscing elit. Elementum amet  <br/>laoreet ac
-                sed gravida enim. Nibh donec quis malesuada venenatis risus. </p>
+            <h3 className="newPagesTitle mb-5">{getText("F1")}</h3>
+
             <form>
-                {accordionData.map((tab, index) => (
+                {(localStorage.getItem("language") === "ru" ? accordionData : accordionDataUz).map((tab, index) => (
                     <div key={index}>
                         <h2>
                             <button

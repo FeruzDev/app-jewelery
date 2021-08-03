@@ -6,7 +6,10 @@ const initialState = {
     forSerNumber: null,
     modalOpendOne: false,
     modalOpendTwo: false,
-    modalOpendThree: false
+    modalOpendThree: false,
+    modalOpendOne2: false,
+    modalOpendTwo2: false,
+    modalOpendThree2: false
 }
 
 export const serReduser = (state = initialState, action) => {

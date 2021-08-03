@@ -7,9 +7,8 @@
 body{
   background: #393E46;
   color: #F3F9FB;
- 
-}
 
+}
 
 
 .main-navbar{
@@ -353,9 +352,14 @@ body{
 
 
 }
-
+.home-sub{
+  font-size: 26px;
+  margin: 50px 400px;
+}
 .experts-home{
   margin-top: 60px;
+
+
   .row{
     justify-content: space-around;
 
@@ -382,6 +386,7 @@ body{
         bottom: 35px;
         padding-left: 10px;
         padding-right: 10px;
+
         h1{
           font-size: 16px ;
           line-height: 19px ;
@@ -561,7 +566,7 @@ body{
   img{
     //margin-top: -55px;
 
-    height: 70px;
+    //height: 70px;
 
   }
 
@@ -627,6 +632,23 @@ body{
   margin-top: -150px;
   height: 400px;
   z-index: -1;
+
+
+  .lang-btn{
+    button{
+      &::after{
+        margin-left: 15px;
+      }
+    }
+
+    .dropdown-menu{
+      background-color: #fff;
+      .dropdown-item{
+        color: #2B2B2E !important;
+
+      }
+    }
+  }
  .container{
    padding: 0;
 
@@ -885,92 +907,103 @@ body{
 }
 
 
+
 .modal-style-mob{
   display: none;
 }
-.modal-style{
-
-  margin-top: 100px;
-  .modal-content{
-    padding: 26px;
-    p{
-      font-size: 20px;
-      line-height: 30px;
-      font-weight: 400;
-
-      color: #474747;
-    }
-
-    h4{
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 29px;
-
-      color: #4CBBB9;
 
 
-    }
-
-    table{
-      tr{
-        th{
-          font-weight: normal;
-          font-size: 18px;
-          line-height: 22px;
-          /* identical to box height */
-
-
-          /* Secondary */
-
-          color: #4CBBB9;
-
-        }
-        td{
-
-
-          padding: 1px;
-          div{
-            border: 1px solid #4CBBB9;
-            box-sizing: border-box;
-            box-shadow: 0px 6px 20px rgba(5, 36, 91, 0.08);
-
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #2B2B2E;
-          }
-        }
-      }
-    }
-
-
-    .close-x{
-      background-color: transparent;
-      width: 20px !important;
-      font-size: 40px;
-      color: #fff;
-
-      position: absolute;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      right: -30px;
-      top: -60px;
-
-    }
-  }
-
-
+.characters-mob{
+  display: none;
 }
+
+
+
+ .modal{
+
+   .modal-style{
+     display: block;
+
+     margin-top: 100px;
+     .modal-content{
+       padding: 26px;
+       p{
+         font-size: 20px;
+         line-height: 30px;
+         font-weight: 400;
+
+         color: #474747;
+       }
+
+       h4{
+         font-weight: bold;
+         font-size: 24px;
+         line-height: 29px;
+
+         color: #4CBBB9;
+
+
+       }
+
+       table{
+         tr{
+           th{
+             font-weight: normal;
+             font-size: 18px;
+             line-height: 22px;
+
+             color: #4CBBB9;
+
+           }
+           td{
+
+
+             padding: 1px;
+             div{
+               border: 1px solid #4CBBB9;
+               box-sizing: border-box;
+               box-shadow: 0px 6px 20px rgba(5, 36, 91, 0.08);
+
+               height: 50px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-weight: bold;
+               color: #2B2B2E;
+             }
+           }
+         }
+       }
+
+
+       .close-x{
+         background-color: transparent;
+         width: 20px !important;
+         font-size: 30px;
+         color: #fff;
+
+         position: absolute;
+         z-index: 999999;
+         border: none;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         right: -30px;
+         top: -60px;
+
+       }
+     }
+
+
+   }
+ }
 .modal-style2{
 
   max-width: 70%;
 
 }
 .ser{
+
 
   .table-button{
     border: none;
@@ -993,7 +1026,7 @@ body{
 
       background-image: url("../img/ser.png");
       background-repeat: no-repeat;
-      height: 619px;
+
       background-size: 100%;
 
 
@@ -1379,7 +1412,17 @@ body{
 
 
   }
+  .home-sub{
+    font-size: 12px !important;
+    padding-left: 30px!important;
+    padding-right: 30px!important;
+    margin: 0px 0px;
 
+    margin-top: 16px!important;
+    margin-bottom: 28px!important;
+
+
+  }
   .experts-home{
     margin-top: 20px;
 
@@ -1399,13 +1442,7 @@ body{
         font-size: 24px;
       }
 
-      h3{
-        font-size: 12px;
-        padding-left: 30px;
-        padding-right: 30px;
-        margin-top: 16px;
-        margin-bottom: 28px;
-      }
+
     }
     .row{
       justify-content: space-around;
@@ -1943,6 +1980,10 @@ body{
 
 
     .characters{
+      display: none !important;
+    }
+    .characters-mob{
+      display: block;
       .container{
 
         .row{
@@ -2021,12 +2062,15 @@ body{
 
 
   .modal-style{
-    display: none;
+    display: none !important;
   }
 
+  .modal-style3{
+    display: none !important;
+  }
 
   .modal-style-mob{
-    display: block;
+    display: block !important;
     width: 100%;
     .modal-content{
       background: transparent;
@@ -2100,7 +2144,7 @@ body{
       .close-x{
         background-color: transparent;
         width: 20px !important;
-        font-size: 40px;
+        font-size: 30px;
         color: #fff;
 
         position: absolute;
