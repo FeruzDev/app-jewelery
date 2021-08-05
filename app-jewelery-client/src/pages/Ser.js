@@ -322,7 +322,7 @@ const Ser = (props) => {
 
 
             </div>
-            <Modal isOpen={props.modalOpendOne}  className=" modal-style">
+            <Modal isOpen={props.modalOpendOne}  className=" modal-style first-modal">
                 <button onClick={mOne} className='close-x '> &#10006;</button>
 
                 <p>Система классификации бриллиантов от D до Z, измеряет степень бесцветности, сравнивая камень при

@@ -20,7 +20,7 @@ const HomeCompany = () => {
             <div className="title">
                 <div />
 
-                <h2>{getText("HM1")}</h2>
+                <h2 >{getText("HM1")}</h2>
                 <div />
             </div>
 

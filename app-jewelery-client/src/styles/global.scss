@@ -8,6 +8,7 @@ body{
   background: #393E46;
   color: #F3F9FB;
 
+
 }
 
 
@@ -19,6 +20,7 @@ body{
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
   .nav-item{
     margin-right: 24px;
 
@@ -59,6 +61,9 @@ body{
     font-weight: normal;
     font-size: 24px;
     line-height: 29px;
+    padding: 0;
+    margin: 0;
+
 
 
 
@@ -213,7 +218,8 @@ body{
      font-weight: normal;
      font-size: 24px;
      line-height: 29px;
-
+     padding: 0;
+     margin: 0;
 
 
    }
@@ -422,7 +428,8 @@ body{
 
 .accordionTable{
 
-
+  font-size: 24px !important;
+  font-weight: normal;
   a {
     color: transparent;
   }
@@ -453,7 +460,9 @@ body{
   }
   p {
     line-height: 1.75rem;
+    font-size: 24px !important;
 
+    padding-top: 15px;
     font-weight: normal;
   }
 
@@ -520,13 +529,14 @@ body{
   .panel-close {
     background: transparent;
     box-sizing: border-box;
-    padding: 0.5rem 1rem 0 1rem;
+    padding: 1rem 1rem 0 1rem;
     opacity:0;
     width:100%;
     height:0;
     overflow: hidden;
     transition-timing-function: ease-out;
     transition: all 1s;
+
   }
 
   .panel-open {
@@ -907,7 +917,12 @@ body{
 }
 
 
-
+.first-modal{
+  max-width: 70vw !important;
+  .modal-content{
+    width: 100% !important;
+  }
+}
 .modal-style-mob{
   display: none;
 }
@@ -1158,6 +1173,8 @@ body{
       font-weight: normal;
       font-size: 14px;
       line-height: 17px;
+      padding: 0;
+      margin: 0;
     }
     div {
       width: 65px;
@@ -1289,6 +1306,8 @@ body{
         font-weight: normal;
         font-size: 14px;
         line-height: 29px;
+        padding: 0;
+        margin: 0;
       }
 
 
@@ -1431,6 +1450,8 @@ body{
 
       margin-top: 16px !important;
       h2{
+        padding: 0;
+        margin: 0;
         margin-top: 16px !important;
 
       }
@@ -1506,7 +1527,12 @@ body{
 
   .accordionTable{
 
+    font-size: 14px !important;
 
+    p{
+      font-size: 14px !important;
+
+    }
     a {
       color: transparent;
     }
@@ -1634,6 +1660,10 @@ body{
 
 
   .experts{
+
+    .title{
+      padding-top: 100px;
+    }
     .experts-con{
       margin-top: 16px;
       .row{
@@ -1724,7 +1754,11 @@ body{
 
   .procedure{
 
+    overflow-x: hidden !important;
 
+    .title{
+      padding-top: 100px !important;
+    }
     .pro-titles{
       h1{
         img{
@@ -1883,13 +1917,18 @@ body{
     .navbar-nav{
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      max-width: 100%;
-      background-color: rgba(0, 0, 0, 0.46);
 
+
+      background-color: rgba(0, 0, 0, 0.86) !important;
+      padding: 34px;
+      box-sizing: initial;
+      margin-left: -31px;
+      z-index: 9999;
+      position: relative;
       .nav-item{
         margin-right: 24px;
 
+        margin-top: 10px;
         a{
           color: #F3F9FB;
         }
@@ -1899,7 +1938,11 @@ body{
       }
 
       .nav-item:nth-child(6){
-        margin-left: auto;
+
+        margin-top: 20px;
+        margin-left: 0;
+
+
 
         a{
           border: 2px solid #4CBBB9;
@@ -2065,6 +2108,7 @@ body{
     display: none !important;
   }
 
+
   .modal-style3{
     display: none !important;
   }
@@ -2106,16 +2150,9 @@ body{
             font-weight: normal;
             font-size: 18px;
             line-height: 22px;
-
-
-            /* identical to box height */
-
-
             text-align: center;
             margin-top: 10px;
             margin-bottom: 15px;
-            /* Secondary */
-
             color: #4CBBB9;
 
           }
@@ -2154,6 +2191,18 @@ body{
         justify-content: center;
         right: 20px;
         top: -60px;
+
+      }
+    }
+  }
+
+  .lang-btn{
+    button{
+      font-size: 10px;
+      padding: 5px;
+      margin-left:  0px;
+      &::after{
+        margin-left:  5px !important;
 
       }
     }
