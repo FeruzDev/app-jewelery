@@ -15,10 +15,10 @@ const Home = (props) => {
 
             <Check history={props.history}/>
 
-            <HomeCompany/>
+            {/*<HomeCompany/>*/}
 
 
-            <HomeExperts/>
+            {/*<HomeExperts/>*/}
 
 
             <Accordion/>

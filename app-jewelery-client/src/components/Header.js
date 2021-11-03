@@ -3,12 +3,16 @@ import {getText} from "../locales";
 
 const Header = () => {
     return (
-        <div className='header'>
-            <h1>Gemstone Certification of Uzbekistan</h1>
+        <div className='header '>
+            <div className="container">
 
-            <h2>{getText("headerTitle")}</h2>
+                <h1>Gemstone Certification of Uzbekistan</h1>
 
-            <img src="/images/GCU.png" alt=""/>
+                <h2>{getText("headerTitle")}</h2>
+                <img src="/images/GCU.png" alt=""/>
+
+            </div>
+
         </div>
     );
 };

@@ -46,7 +46,7 @@ const MainNavbar = (props) => {
 
 
                         <NavItem>
-                            <Link to="/"> <img src="/images/phone.png" alt="" />{getText("n6")}</Link>
+                            <a href="tel: +998333393334" target="_blank"> <img src="/images/phone.png" alt="" />{getText("n6")}</a>
                         </NavItem>
 
 

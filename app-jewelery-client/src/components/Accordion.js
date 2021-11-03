@@ -10,24 +10,14 @@ const Accordion = () => {
             isActive: false
 
         },
-        {
-            id: '1',
-            title: ' Как мне получить сертификат?',
-            content: `    Для получения сертификата нужно обратиться к одному из проверенных оценщиков которые и выдадут вам сертификат  `,
-            isActive: false
-        },
+
         {
             id: '2',
             title: 'Сколько времени требуется для получения сертификата?',
             content: ` По времени изготовления цифрового сертификата занимает от 1 до 24 часов. Бумажный сертификат изготавливается от 1 до 72 часов. `,
             isActive: false
         },
-        {
-            id: '3',
-            title: 'Сколько стоит сделать сертификат?',
-            content: `Цена получение одного электронного сертификата составляет 10.000 сум. Бумажного 100.000 сум `,
-            isActive: false
-        },
+
         {
             id: '4',
             title: '  Как проверить подлинность сертификата?',
@@ -47,24 +37,14 @@ const Accordion = () => {
             isActive: false
 
         },
-        {
-            id: '1',
-            title: ' Sertifikatni qanday olishim mumkin? ',
-            content: ` Sertifikatni olish uchun siz sertifikat beradigan ishonchli baholovchilarga murojaat qilishingiz kerak. `,
-            isActive: false
-        },
+
         {
             id: '2',
             title: 'Sertifikat olish uchun qancha vaqt kerak?',
             content: ` Raqamli sertifikat ishlab chiqarish vaqti 1 soatdan 24 soatgacha. Qog'oz sertifikati 1 soatdan 72 soatgacha ishlab chiqariladi. `,
             isActive: false
         },
-        {
-            id: '3',
-            title: 'Sertifikat qancha turadi?',
-            content: `Bitta elektron sertifikatni olish narxi 10.000 so'm. Qog'oz sertifikatni narxi 100.000 so'm `,
-            isActive: false
-        },
+
         {
             id: '4',
             title: '  Sertifikatning haqiqiyligini qanday tekshirish mumkin?',

@@ -109,14 +109,14 @@ body{
 .header{
   background-image: url("../img/gb0BZGae1Nk.png");
   height: 800px;
-  background-size: 100% 100%;
+  background-size: cover;
 
   h1{
     font-style: normal;
     font-weight: 600;
     margin: 0;
     font-size: 40px;
-    margin-left: 120px;
+    //margin-left: 120px;
     padding-top: 60px;
     line-height: 48px;
   }
@@ -127,11 +127,11 @@ body{
     font-size: 18px;
     line-height: 22px;
     margin-top: 24px;
-    margin-left: 120px;
+    //margin-left: 120px;
   }
   img{
-    margin-left: 120px;
-    margin-top: 24px;
+    //margin-left: 120px;
+    margin-top: 34px;
   }
 }
 
@@ -1206,7 +1206,7 @@ body{
   .header{
     background-image: url("../img/gb0BZGae1Nk.png");
     height: 300px;
-    background-size: 100% 100%;
+    background-size: cover;
 
 
     h1{
