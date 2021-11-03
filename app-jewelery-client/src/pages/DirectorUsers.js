@@ -28,7 +28,7 @@ const DirectorUsers = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.users.map((item, index) => (
+                {props.users?.map((item, index) => (
                     <tr>
                         <td>{index + 1}</td>
                         <td>{item.firstName + " " + item.lastName}</td>
@@ -42,7 +42,7 @@ const DirectorUsers = (props) => {
             <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false})} className="bg-secondary">
                 <AvForm onValidSubmit={props.saveUser}>
                     <ModalHeader className="bg-secondary">
-                        Add User
+                        Add Worker
                     </ModalHeader>
                     <ModalBody className="bg-secondary">
                         <AvField type="text" name="firstName" label="Firstname" required/>

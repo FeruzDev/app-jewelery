@@ -24,8 +24,8 @@ const Jewelery = (props) => {
 
                         <div className="uploadPhoto">
                             {props.photo ?
-                                <img src={API_PATH + "file/get/" + props.photo} alt="photo" className="photo"/> :
-                                <img src="/images/icon/camera.svg" alt="camera.svg" className="camera"/>
+                                <img src={API_PATH + "file/get/" + props.photo} alt="photo" className="w-100 photo"/> :
+                                <img src="/images/icon/camera.png" alt="camera.svg" className="camera  mr-3" style={{marginTop: "-5px"}}/>
                             }
                             <label htmlFor="file">Upload Photo</label>
 

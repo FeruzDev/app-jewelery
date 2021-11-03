@@ -40,9 +40,9 @@ function App(props) {
                 <Route exact path="/login" component={Login}/>
                 {/*<Route exact path="/admin" component={Admin}/>*/}
                 <Route exact path="/certificate/:id" component={Ser}/>
-                <PrivateRoute exact path="/admin/users" component={AdminUsers} role="admin"/>
-                <PrivateRoute exact path="/admin/workers" component={DirectorUsers} role="director"/>
-                <PrivateRoute exact path="/admin/jewelery" component={Jewelery} role="director"/>
+                <Route exact path="/admin/users" component={AdminUsers} role="admin"/>
+                <Route exact path="/admin/workers" component={DirectorUsers} role="director"/>
+                <Route exact path="/admin/jewelery" component={Jewelery} role="director"/>
 
                 <Route component={NotFound}/>
             </Switch>

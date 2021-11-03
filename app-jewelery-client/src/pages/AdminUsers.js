@@ -27,7 +27,7 @@ const AdminUsers = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.users.map((item, index) => (
+                {props.users?.map((item, index) => (
                     <tr>
                         <td>{index + 1}</td>
                         <td>{item.firstName + " " + item.lastName}</td>
