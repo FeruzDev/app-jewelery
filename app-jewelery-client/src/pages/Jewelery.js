@@ -1,12 +1,18 @@
 import React from 'react';
 import AdminLayout from "../layouts/AdminLayout";
 import {connect} from "react-redux";
-import {updateState, uploadPhoto} from "../redux/actions/jeweleryAction";
+import {createJewelery, updateState, uploadPhoto} from "../redux/actions/jeweleryAction";
 import {AvField, AvForm} from "availity-reactstrap-validation";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {API_PATH} from "../tools/constants";
 
+
 const Jewelery = (props) => {
+
+
+
+
+
     return (
         <AdminLayout>
             <div className="content">
@@ -16,7 +22,7 @@ const Jewelery = (props) => {
             </div>
 
             <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false})} className="bg-secondary">
-                <AvForm onValidSubmit={props.saveUser}>
+                <AvForm onValidSubmit={props.createJewelery}>
                     <ModalHeader className="bg-secondary">
                         Add Jewelery
                     </ModalHeader>
@@ -24,16 +30,17 @@ const Jewelery = (props) => {
 
                         <div className="uploadPhoto">
                             {props.photo ?
-                                <img src={API_PATH + "file/get/" + props.photo} alt="photo" className="w-100 photo"/> :
+                                <img src={API_PATH + "file/get/" + props.photo}      name="photo1" className="w-100 photo"/> :
                                 <img src="/images/icon/camera.png" alt="camera.svg" className="camera  mr-3" style={{marginTop: "-5px"}}/>
                             }
                             <label htmlFor="file">Upload Photo</label>
 
                         </div>
 
-                        <input type="file" className="d-none" id="file"
+                        <input type="file" className="d-none"   id="file"
                                onChange={(e) => props.uploadPhoto(e.target.files[0])}/>
 
+                        <AvField type="text" name="photo" value={props.photo} className="d-none"   required/>
                         <AvField type="text" name="name" label="Name" required/>
                         <AvField type="number" name="totalWeight" label="Total weight" required/>
                         <AvField type="text" name="metal" label="Metal" required/>
@@ -94,4 +101,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {updateState, uploadPhoto})(Jewelery);
+export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery})(Jewelery);

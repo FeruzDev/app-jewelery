@@ -5,8 +5,8 @@ import React from 'react';
 
 const NotFound = () => {
     return (
-        <div>
-            404
+        <div className="page404">
+            <h1>404</h1>
         </div>
     );
 };

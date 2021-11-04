@@ -4,13 +4,14 @@
 import React, {useEffect} from 'react';
 import AdminLayout from "../layouts/AdminLayout";
 import {connect} from "react-redux";
-import {getUsers, saveUser, updateState} from "../redux/actions/adminUsersAction";
+import {createJewelery, getUsers, saveUser, updateState} from "../redux/actions/adminUsersAction";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {AvForm, AvField} from "availity-reactstrap-validation";
 
 const AdminUsers = (props) => {
     useEffect(() => {
         props.getUsers("all");
+
     }, [])
     return (
         <AdminLayout>
@@ -76,4 +77,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getUsers, updateState, saveUser})(AdminUsers);
+export default connect(mapStateToProps, {getUsers, updateState, saveUser,})(AdminUsers);

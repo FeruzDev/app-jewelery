@@ -26,6 +26,7 @@ const Check = (props) => {
                     <AvField
                         required
                         name="ForSer"
+
                         type="text"
                         placeholder='Ваше ID'
                     />
