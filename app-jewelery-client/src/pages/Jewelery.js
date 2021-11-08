@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AdminLayout from "../layouts/AdminLayout";
 import {connect} from "react-redux";
-import {createJewelery, updateState, uploadPhoto} from "../redux/actions/jeweleryAction";
+import {createJewelery, getJeweleries, updateState, uploadPhoto} from "../redux/actions/jeweleryAction";
 import {AvField, AvForm} from "availity-reactstrap-validation";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {API_PATH} from "../tools/constants";
@@ -10,7 +10,11 @@ import {API_PATH} from "../tools/constants";
 const Jewelery = (props) => {
 
 
+    useEffect(() => {
+        props.getJeweleries(0);
+    }, [])
 
+    console.log(props.characteristics);
 
 
     return (
@@ -19,7 +23,32 @@ const Jewelery = (props) => {
                 <button type="button" className='btn btn-secondary my-3 d-block ml-auto'
                         onClick={() => props.updateState({isOpen: true})}>Add Jewelery
                 </button>
+
+                <table className="table table-dark">
+                    <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Название</th>
+                        <th>Метал</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {props.jeweleries?.map(item => (
+                        <tr>
+                            <td>{item.serial}</td>
+                            <td>{item.name}</td>
+                            <td>{item.metal}</td>
+                            <td>
+                                <a href={"http://localhost:3000/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
             </div>
+
+
 
             <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false})} className="bg-secondary">
                 <AvForm onValidSubmit={props.createJewelery}>
@@ -48,21 +77,26 @@ const Jewelery = (props) => {
                         <AvField type="date" name="date" label="Date" required/>
 
                         {props.diamonds.map((item, index) => (
-                            <div className="diamonds border-top">
+                            <div className="diamonds border mt-3 p-1">
+                                <h5 className="mt-3">Diamond {index + 1} <span className="close" style={{cursor: "pointer"}}>x</span></h5>
                                 <AvField type="number" name={`diamonds[${index}].diamond`} label="Weight" required/>
 
-                                {item.characteristics.map((item2, index2) => (
-                                    <div className="characteristics">
-                                        <AvField type="number" name={`diamonds[${index}].characteristics[${index2}].name`} label="Weightt" required/>
+                                {props.characteristics.filter(item => item.diamondIndex === index).map((item2, index2) => (
+                                    <div className="characteristics border border-warning mt-3 p-1">
+                                        <h5 className="mt-3">Characteristic {index2 + 1} <span className="close" style={{cursor: "pointer"}} onClick={() => {
+                                            // console.log(props.characteristics.splice(item.index, 1));
+                                            props.updateState({characteristics: props.characteristics.filter(item => item.index !== item2.index)})
+                                        }}>x</span></h5>
+                                        <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].name`} label="Name" required/>
+                                        <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].valueOne`} label="Value one" required/>
+                                        <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].valueTwo`} label="Value two" required/>
                                     </div>
                                 ))}
 
-                                <button type="button" className="btn btn-success d-block ml-auto my-2" onClick={async () => {
-                                    let temp = item;
-                                    let temp2 = props.diamonds;
-                                    temp.characteristics.concat({id: null, name: "", valueOne: "", valueTwo: ""});
-                                    temp2.splice(index, 1, temp);
-                                    props.updateState({diamonds: temp2})
+                                <button type="button" className="btn btn-success d-block ml-auto my-2" onClick={ () => {
+                                        props.updateState({characteristics: props.characteristics.concat({
+                                                id: null, name: "", valueOne: "", valueTwo: "", diamondIndex: index, index: props.characteristics.length
+                                            })});
                                 }}>
                                     Add characteristics
                                 </button>
@@ -70,16 +104,12 @@ const Jewelery = (props) => {
                         ))}
 
                         <button type="button" className="btn btn-block btn-success mt-5"
-                                onClick={() => {props.updateState({
+                                onClick={() => props.updateState({
                                     diamonds: props.diamonds.concat({
                                         id: null,
                                         diamond: 0,
-                                        characteristics: []
                                     })
-                                });
-                                    let arr = [1,2,3,4];
-                                    console.log(arr.splice(1, 1, 5));
-                                }
+                                })
                                 }>Add diamond
                         </button>
                     </ModalBody>
@@ -102,8 +132,9 @@ const mapStateToProps = (state) => {
         isOpen: state.jewelery.isOpen,
         jeweleries: state.jewelery.jeweleries,
         photo: state.jewelery.photo,
-        diamonds: state.jewelery.diamonds
+        diamonds: state.jewelery.diamonds,
+        characteristics: state.jewelery.characteristics
     }
 }
 
-export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery})(Jewelery);
+export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery, getJeweleries})(Jewelery);

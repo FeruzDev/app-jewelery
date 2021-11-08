@@ -39,7 +39,7 @@ function App(props) {
 
                 <Route exact path="/login" component={Login}/>
                 {/*<Route exact path="/admin" component={Admin}/>*/}
-                <PrivateRoute exact path="/certificate/:id" component={Ser}/>
+                <Route exact path="/certificate/:id" component={Ser}/>
                 <PrivateRoute exact path="/admin/users" component={AdminUsers} role="admin"/>
                 <PrivateRoute exact path="/admin/workers" component={DirectorUsers} role="director"/>
                 <PrivateRoute exact path="/admin/jewelery" component={Jewelery} role="director"/>
