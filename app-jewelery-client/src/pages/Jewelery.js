@@ -53,15 +53,16 @@ const Jewelery = (props) => {
 
                                 {item.characteristics.map((item2, index2) => (
                                     <div className="characteristics">
-                                        <AvField type="number" name={`diamonds[${index}].characteristics[${index2}].name`} label="Weight" required/>
+                                        <AvField type="number" name={`diamonds[${index}].characteristics[${index2}].name`} label="Weightt" required/>
                                     </div>
                                 ))}
 
                                 <button type="button" className="btn btn-success d-block ml-auto my-2" onClick={async () => {
-                                    let temp = props.diamonds
-                                    console.log(props.diamonds[index].characteristics.concat({id: null, name: "", valueOne: "", valueTwo: ""}))
-                                    // await temp[index].characteristics.push({id: null, name: "", valueOne: "", valueTwo: ""})
-                                    props.updateState({diamonds: temp})
+                                    let temp = item;
+                                    let temp2 = props.diamonds;
+                                    temp.characteristics.concat({id: null, name: "", valueOne: "", valueTwo: ""});
+                                    temp2.splice(index, 1, temp);
+                                    props.updateState({diamonds: temp2})
                                 }}>
                                     Add characteristics
                                 </button>
@@ -69,13 +70,17 @@ const Jewelery = (props) => {
                         ))}
 
                         <button type="button" className="btn btn-block btn-success mt-5"
-                                onClick={() => props.updateState({
+                                onClick={() => {props.updateState({
                                     diamonds: props.diamonds.concat({
                                         id: null,
                                         diamond: 0,
                                         characteristics: []
                                     })
-                                })}>Add diamond
+                                });
+                                    let arr = [1,2,3,4];
+                                    console.log(arr.splice(1, 1, 5));
+                                }
+                                }>Add diamond
                         </button>
                     </ModalBody>
                     <ModalFooter className="bg-secondary justify-content-end">
