@@ -61,4 +61,13 @@ export const UZ = {
     n4: "ID bo'yicha qidirish",
     n5: "Kompaniya haqida",
     n6: "Kontakt",
+
+
+
+
+
+    ser1: "Mahsulot haqida ma'lumot",
+    ser2: "Xususiyatlar",
+    ser3: "JADVAL",
+    ser4: "Izoh"
 }

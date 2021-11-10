@@ -1,14 +1,37 @@
 
 
 import React, { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu, DropdownItem
+} from 'reactstrap';
 import {Link} from "react-router-dom";
 import {getText} from "../locales";
+import {SITE_LANG} from "../tools/constants";
 
 const MainNavbar = (props) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const toggleNavbar = () => setCollapsed(!collapsed);
+
+
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+
+
+    const  changeLang = (lang) =>{
+        localStorage.setItem(SITE_LANG, (lang));
+        window.location.reload();
+    }
 
     return (
         <div className='main-navbar container'>
@@ -21,15 +44,15 @@ const MainNavbar = (props) => {
                             <Link to="/">{getText("n1")}</Link>
                         </NavItem>
 
-                        <NavItem>
-                            <Link to="/experts">{getText("n2")}</Link>
-                        </NavItem>
+                        {/*<NavItem>*/}
+                        {/*    <Link to="/experts">{getText("n2")}</Link>*/}
+                        {/*</NavItem>*/}
 
 
 
-                        <NavItem>
-                            <Link to="/procedure"> {getText("n3")}</Link>
-                        </NavItem>
+                        {/*<NavItem>*/}
+                        {/*    <Link to="/procedure"> {getText("n3")}</Link>*/}
+                        {/*</NavItem>*/}
 
 
 
@@ -39,10 +62,31 @@ const MainNavbar = (props) => {
 
 
 
-                        <NavItem>
-                            <Link to="/company">{getText("n5")}</Link>
-                        </NavItem>
+                        {/*<NavItem>*/}
+                        {/*    <Link to="/company">{getText("n5")}</Link>*/}
+                        {/*</NavItem>*/}
 
+                        <Dropdown className="lang-btn" isOpen={dropdownOpen} toggle={toggle}>
+                            <DropdownToggle caret>
+                                <img src="/images/icon/eath.png" alt=""/>
+                                {localStorage.getItem("language") === "uz" ? "   O'zbek tili " : "Русский " }
+
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem   onClick={() => changeLang('ru')}>
+
+                                    Русский
+                                </DropdownItem>
+
+                                <DropdownItem  onClick={() => changeLang('uz')} >
+
+                                    O'zbek tili
+                                </DropdownItem>
+
+
+
+                            </DropdownMenu>
+                        </Dropdown>
 
 
                         <NavItem>

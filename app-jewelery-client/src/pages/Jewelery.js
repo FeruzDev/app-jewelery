@@ -40,7 +40,7 @@ const Jewelery = (props) => {
                             <td>{item.name}</td>
                             <td>{item.metal}</td>
                             <td>
-                                <a href={"http://localhost:3000/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
+                                <a href={"http://gcu.uz/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
                             </td>
                         </tr>
                     ))}

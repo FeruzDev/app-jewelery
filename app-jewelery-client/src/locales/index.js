@@ -6,9 +6,9 @@ import {SITE_LANG} from "../tools/constants";
 
 
 export function getText(word){
-    if (localStorage.getItem(SITE_LANG) === "ru"){
-        return RU[word];
-    } else return UZ[word];
+    if (localStorage.getItem(SITE_LANG) === "uz"){
+        return UZ[word];
+    } else return RU[word];
 }
 
 export function getLang(){

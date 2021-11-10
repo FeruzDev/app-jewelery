@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {sertification, updateState} from "../redux/actions/SerAction";
 import {API_PATH} from "../tools/constants";
 import {Modal, ModalBody, ModalFooter} from "reactstrap";
+import {getText} from "../locales";
 
 const Ser = (props) => {
 
@@ -74,7 +75,7 @@ const Ser = (props) => {
                                 </div>
                                 <div className="title mt-5">
                                     <div></div>
-                                    <h2>Информация об изделии</h2>
+                                    <h2>{getText("ser1")}</h2>
                                     <div></div>
                                 </div>
                                 <div className="row">
@@ -135,7 +136,7 @@ const Ser = (props) => {
                                 <div className="title mt-5">
                                     <div></div>
 
-                                    <h2>Характеристики вставок</h2>
+                                    <h2>{getText("ser2")}</h2>
                                     <div></div>
                                 </div>
 
@@ -154,7 +155,7 @@ const Ser = (props) => {
                                                     <div className="stChild">
                                                         <span>{item.diamond + " ct"}</span>
                                                     </div>
-                                                    <h6>таблица</h6>
+                                                    <h6>{getText("ser3")}</h6>
                                                 </div>
                                                 {
                                                     item.characteristics?.map(item2 => (
@@ -182,7 +183,7 @@ const Ser = (props) => {
                                                                 </div>
                                                                 <button
                                                                     onClick={item2.name === "Color Scale" ? mOne : item2.name === "Clarity scale" ? mTwo : item2.name === "Cut scale" ? mThree : ""}
-                                                                    className="table-button"><h6>таблица</h6>
+                                                                    className="table-button"><h6>{getText("ser3")}</h6>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -201,7 +202,7 @@ const Ser = (props) => {
 
                                         <div className="col-md-6 ">
                                             <div className="st pl-3">
-                                                <h3>Комментарий</h3>
+                                                <h3>{getText("ser4")}</h3>
                                                 <div className="stChildT">
                                                     <span>VVVV</span>
                                                 </div>
@@ -254,7 +255,7 @@ const Ser = (props) => {
                                                     <div className="stChild">
                                                         <span>{item.diamond + " ct"}</span>
                                                     </div>
-                                                    <h6>таблица</h6>
+                                                    <h6>{getText("ser3")}</h6>
                                                 </div>
                                                 {
                                                     item.characteristics?.map(item2 => (
@@ -282,7 +283,7 @@ const Ser = (props) => {
                                                                 </div>
                                                                 <button
                                                                     onClick={item2.name === "Color Scale" ? mOne2 : item2.name === "Clarity scale" ? mTwo2 : item2.name === "Cut scale" ? mThree2 : ""}
-                                                                    className="table-button"><h6>таблица</h6>
+                                                                    className="table-button"><h6>{getText("ser3")}</h6>
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -301,7 +302,7 @@ const Ser = (props) => {
 
                                         <div className="col-md-6 ">
                                             <div className="st pl-3">
-                                                <h3>Комментарий</h3>
+                                                <h3>{getText("ser4")}</h3>
                                                 <div className="stChildT">
                                                     <span>VVVV</span>
                                                 </div>

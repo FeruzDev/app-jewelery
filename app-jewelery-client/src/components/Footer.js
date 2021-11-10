@@ -27,7 +27,7 @@ const Footer = () => {
                         <Dropdown className="lang-btn" isOpen={dropdownOpen} toggle={toggle}>
                             <DropdownToggle caret>
                                 <img src="/images/icon/eath.png" alt=""/>
-                                {localStorage.getItem("language") === "ru" ? " Русский" : " O'zbek tili" }
+                                {localStorage.getItem("language") === "uz" ? "   O'zbek tili " : "Русский " }
 
                             </DropdownToggle>
                             <DropdownMenu>
@@ -54,9 +54,9 @@ const Footer = () => {
                     <div className="col-4">
                         <ul>
                             {/*<li><img src="/images/icon/Group19375.png" alt=""/></li>*/}
-                            <li ><a href="https://instagram.com/gcu.uz?utm_medium=copy_link" target="_blank"><img src="/images/icon/Group19376.png" alt=""/></a></li>
+                            <li ><a href="https://instagram.com/gcu.uz?utm_medium=copy_link" target="_blank"><img src="/images/icon/Group19376.png" style={{width: "35px"}} alt=""/></a></li>
                             {/*<li><img src="/images/icon/Group19377.png" alt=""/></li>*/}
-                            <li><a href="https://t.me/gcu_uz" target="_blank"><img src="/images/icon/Group19378.png" alt=""/></a></li>
+                            <li><a href="https://t.me/gcu_uz" target="_blank"><img src="/images/icon/Group19378.png" style={{width: "35px"}} alt=""/></a></li>
                         </ul>
                     </div>
                 </div>
