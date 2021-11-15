@@ -23,7 +23,7 @@ const Home = (props) => {
 
             <Accordion/>
 
-            <Contact/>
+            {/*<Contact/>*/}
 
             <Footer/>
         </div>
