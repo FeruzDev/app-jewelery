@@ -52,3 +52,13 @@ export const getJeweleries = (page) => (dispatch) => {
 }
 
 
+export const deleteJewelery = () => (dispatch, getState) => {
+    axios.delete(API_PATH + "jewelery/" + getState().jewelery.selectedId)
+        .then(res => {
+            if(res.data.success){
+                toast.success(res.data.message);
+                dispatch(updateState({isOpenDelete: false, selectedId: null}))
+                dispatch(getJeweleries(0));
+            }
+        })
+}

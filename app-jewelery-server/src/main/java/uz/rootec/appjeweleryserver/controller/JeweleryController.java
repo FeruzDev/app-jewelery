@@ -14,6 +14,7 @@ import uz.rootec.appjeweleryserver.payload.ApiResponse;
 import uz.rootec.appjeweleryserver.payload.ReqCharacteristic;
 import uz.rootec.appjeweleryserver.payload.ReqDiamond;
 import uz.rootec.appjeweleryserver.payload.ReqJewelery;
+import uz.rootec.appjeweleryserver.projection.CustomCharacteristic;
 import uz.rootec.appjeweleryserver.projection.CustomDiamond;
 import uz.rootec.appjeweleryserver.projection.CustomJewelery;
 import uz.rootec.appjeweleryserver.repository.AttachmentRepository;
@@ -151,6 +152,28 @@ public class JeweleryController {
         } catch (Exception e){
             return ResponseEntity.ok(new ApiResponse(false, e.getMessage()));
         }
+    }
+
+    @DeleteMapping("/{id}")
+    public HttpEntity<?> deleteJewelery(@PathVariable UUID id){
+       try {
+           List<CustomDiamond> diamonds = diamondRepository.findAllByJeweleryId(id);
+
+           for (CustomDiamond diamond : diamonds) {
+               List<CustomCharacteristic> characteristics = characteristicRepository.findAllByDiamondId(diamond.getId());
+
+               for (CustomCharacteristic characteristic : characteristics) {
+                   characteristicRepository.deleteById(characteristic.getId());
+               }
+
+               diamondRepository.deleteById(diamond.getId());
+           }
+
+           jeweleryRepository.deleteById(id);
+           return ResponseEntity.ok(new ApiResponse(true, "Удалено"));
+       } catch (Exception e){
+           return ResponseEntity.ok(new ApiResponse(false, e.getMessage()));
+       }
     }
 
     @GetMapping("/check/{serial}")

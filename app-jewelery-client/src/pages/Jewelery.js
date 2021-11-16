@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import AdminLayout from "../layouts/AdminLayout";
 import {connect} from "react-redux";
-import {createJewelery, getJeweleries, updateState, uploadPhoto} from "../redux/actions/jeweleryAction";
+import {createJewelery, getJeweleries, updateState, uploadPhoto, deleteJewelery} from "../redux/actions/jeweleryAction";
 import {AvField, AvForm} from "availity-reactstrap-validation";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {API_PATH} from "../tools/constants";
@@ -30,7 +30,8 @@ const Jewelery = (props) => {
                         <th>№</th>
                         <th>Название</th>
                         <th>Метал</th>
-                        <th></th>
+                        <th>Посмотреть</th>
+                        <th>Действия</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,6 +42,9 @@ const Jewelery = (props) => {
                             <td>{item.metal}</td>
                             <td>
                                 <a href={"http://gcu.uz/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
+                            </td>
+                            <td>
+                                <button type="button" className="btn btn-danger" onClick={() => props.updateState({isOpenDelete: true, selectedId: item.id})}>Удалить</button>
                             </td>
                         </tr>
                     ))}
@@ -123,6 +127,15 @@ const Jewelery = (props) => {
                     </ModalFooter>
                 </AvForm>
             </Modal>
+            <Modal isOpen={props.isOpenDelete} toggle={() => props.updateState({isOpenDelete: false, selectedId: null})}>
+               <ModalHeader>
+                   <h4 className="text-dark">Вы действительно хотите удалить?</h4>
+               </ModalHeader>
+                <ModalFooter>
+                    <button type="button" className="btn btn-danger" onClick={props.deleteJewelery}>Да</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => props.updateState({isOpenDelete: false, selectedId: null})}>Нет</button>
+                </ModalFooter>
+            </Modal>
         </AdminLayout>
     );
 };
@@ -130,11 +143,13 @@ const Jewelery = (props) => {
 const mapStateToProps = (state) => {
     return {
         isOpen: state.jewelery.isOpen,
+        isOpenDelete: state.jewelery.isOpenDelete,
         jeweleries: state.jewelery.jeweleries,
         photo: state.jewelery.photo,
         diamonds: state.jewelery.diamonds,
-        characteristics: state.jewelery.characteristics
+        characteristics: state.jewelery.characteristics,
+        selectedId: state.jewelery.selectedId
     }
 }
 
-export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery, getJeweleries})(Jewelery);
+export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery, getJeweleries,deleteJewelery})(Jewelery);

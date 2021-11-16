@@ -2,6 +2,8 @@ import {UPDATESTATE} from "../types/jeweleryType";
 
 const initialState = {
     isOpen: false,
+    isOpenDelete: false,
+    selectedId: null,
     jeweleries: [],
     photo: null,
     diamonds: [],
