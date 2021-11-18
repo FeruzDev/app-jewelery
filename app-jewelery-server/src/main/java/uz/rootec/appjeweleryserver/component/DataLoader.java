@@ -29,8 +29,8 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        User user1 = new User("dmValue2021", passwordEncoder.encode("Jin(8'))2@fj"), "Agasi", "Agasi", roleRepository.findAll(), "agasi@gmail.com");
-        userRepository.save(user1);
+//        User user1 = new User("dmValue2021", passwordEncoder.encode("Jin(8'))2@fj"), "Agasi", "Agasi", roleRepository.findAll(), "agasi@gmail.com");
+//        userRepository.save(user1);
         if (initialMode.equals("always")) {
             User user = new User("+998934366331", passwordEncoder.encode("root123"), "Muxammatov", "Nizom", roleRepository.findAll(), "nizom702@gmail.com");
             userRepository.save(user);

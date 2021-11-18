@@ -7,7 +7,8 @@ const initialState = {
     jeweleries: [],
     photo: null,
     diamonds: [],
-    characteristics: []
+    characteristics: [],
+    selectedJewelery: null
 }
 
 export const jeweleryReducer = (state = initialState, action) => {

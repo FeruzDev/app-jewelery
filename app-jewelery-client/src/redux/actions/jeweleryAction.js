@@ -32,7 +32,7 @@ export const createJewelery = (event, values) => (dispatch, getState) => {
     axios.post(API_PATH + "jewelery/saveOrUpdate", values, CONFIG)
         .then((res) => {
             toast.success("Выполнено")
-            dispatch(updateState({    photo: null, isOpen: false, diamonds: [], characteristics: []}))
+            dispatch(updateState({    photo: null, isOpen: false, diamonds: [], characteristics: [], selectedJewelery: null}))
             dispatch(getJeweleries(0));
         })
         .catch(err => {

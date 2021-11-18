@@ -16,6 +16,9 @@ const Jewelery = (props) => {
 
     console.log(props.characteristics);
 
+    const getCharacteristics = (diamonds) => {
+        diamonds?.map((item, index) => item.characteristics?.map((item2, index2) => props.updateState({characteristics: props.characteristics.concat({diamondIndex: index, index: index2, ...item2, ...item2})})))
+    }
 
     return (
         <AdminLayout>
@@ -28,8 +31,10 @@ const Jewelery = (props) => {
                     <thead>
                     <tr>
                         <th>№</th>
+                        <th>Фото</th>
                         <th>Название</th>
-                        <th>Метал</th>
+                        <th>Дата</th>
+
                         <th>Посмотреть</th>
                         <th>Действия</th>
                     </tr>
@@ -38,12 +43,16 @@ const Jewelery = (props) => {
                     {props.jeweleries?.map(item => (
                         <tr>
                             <td>{item.serial}</td>
+                            <td><img src={API_PATH + "file/get/" + item.photo} width="100" alt=""/></td>
                             <td>{item.name}</td>
-                            <td>{item.metal}</td>
+                            <th>
+                                {item.date?.substr(0, 10)}
+                            </th>
                             <td>
                                 <a href={"http://gcu.uz/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
                             </td>
                             <td>
+                                <button type="button" className="btn btn-success mr-2" onClick={() => {props.updateState({isOpen: true, selectedJewelery: item, diamonds: item.diamonds}); getCharacteristics(item.diamonds)}}>Изменить</button>
                                 <button type="button" className="btn btn-danger" onClick={() => props.updateState({isOpenDelete: true, selectedId: item.id})}>Удалить</button>
                             </td>
                         </tr>
@@ -54,12 +63,16 @@ const Jewelery = (props) => {
 
 
 
-            <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false})} className="bg-secondary">
-                <AvForm onValidSubmit={props.createJewelery}>
+
+            <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false, diamonds: [], characteristics: [], selectedJewelery: null})} className="bg-secondary">
+                <AvForm onValidSubmit={props.createJewelery} model={props.selectedJewelery ? {...props.selectedJewelery, date: props.selectedJewelery.date.substr(0, 10)}: {}}>
                     <ModalHeader className="bg-secondary">
                         Add Jewelery
                     </ModalHeader>
                     <ModalBody className="bg-secondary">
+                        {props.selectedJewelery ?
+                            <AvField type="text" name="id" value={props.selectedJewelery.id} className="d-none" /> :""
+                        }
 
                         <div className="uploadPhoto">
                             {props.photo ?
@@ -78,7 +91,7 @@ const Jewelery = (props) => {
                         <AvField type="number" name="totalWeight" label="Total weight" required/>
                         <AvField type="text" name="metal" label="Metal" required/>
                         <AvField type="number" name="hallMark" label="Hall Mark" required/>
-                        <AvField type="date" name="date" label="Date" required/>
+                        <AvField type="date" name="date" value={props.selectedJewelery?.date.substr(6, 4) + "-" + props.selectedJewelery?.date.substr(3, 2) + "-" + props.selectedJewelery?.date.substr(0, 2)}  label="Date" required/>
 
                         {props.diamonds.map((item, index) => (
                             <div className="diamonds border mt-3 p-1">
@@ -122,7 +135,7 @@ const Jewelery = (props) => {
                                 disabled={props.isLoading}>{props.isLoading ?
                             <span className="spinner-border spinner-border-sm"/> : "Add"}</button>
                         <button type="button" className="btn btn-danger"
-                                onClick={() => props.updateState({isOpen: false})}>Close
+                                onClick={() => props.updateState({isOpen: false,diamonds: [], characteristics: [], selectedJewelery: null})}>Close
                         </button>
                     </ModalFooter>
                 </AvForm>
@@ -148,7 +161,8 @@ const mapStateToProps = (state) => {
         photo: state.jewelery.photo,
         diamonds: state.jewelery.diamonds,
         characteristics: state.jewelery.characteristics,
-        selectedId: state.jewelery.selectedId
+        selectedId: state.jewelery.selectedId,
+        selectedJewelery: state.jewelery.selectedJewelery
     }
 }
 
