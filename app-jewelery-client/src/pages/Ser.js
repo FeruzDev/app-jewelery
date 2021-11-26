@@ -1,16 +1,20 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Footer from "../components/Footer";
 import {connect} from "react-redux";
-import {sertification, updateState} from "../redux/actions/SerAction";
+import {getComments, sendComment, sertification, updateState} from "../redux/actions/SerAction";
 import {API_PATH} from "../tools/constants";
 import {Modal, ModalBody, ModalFooter} from "reactstrap";
 import {getText} from "../locales";
+import {AvForm, AvField} from "availity-reactstrap-validation";
 
 const Ser = (props) => {
 
+    let form = useRef();
 
     useEffect(() => {
         props.sertification(props.match.params.id);
+        props.getComments(props.match.params.id);
+        props.updateState({path: props.match.params.id});
     }, [])
 
 
@@ -203,9 +207,30 @@ const Ser = (props) => {
                                         <div className="col-md-6 ">
                                             <div className="st pl-3">
                                                 <h3>{getText("ser4")}</h3>
-                                                <div className="stChildT">
-                                                    <span>VVVV</span>
-                                                </div>
+
+                                                {props.comments.length > 0 ?
+                                                    props.comments.map(item => (
+                                                        <div>
+                                                            <hr className="bg-white"/>
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <h6>От: {item.fullName}</h6>
+                                                                <span>{item.createdAt.substr(0, 16)}</span>
+                                                            </div>
+
+                                                            <p><i>"{item.comment}"</i></p>
+                                                        </div>
+                                                    )) : ""
+                                                }
+
+
+
+                                                <h5 className="mt-5">Отправить комментарий</h5>
+
+                                                <AvForm   ref={(c) => form = c} onValidSubmit={(e, v) => props.sendComment(e,v, form)}>
+                                                    <AvField type="text" name="fullName" placeholder="Ваше имя" required/>
+                                                    <AvField type="textarea" name="comment" placeholder="Ваше комментарий"/>
+                                                    <button type="submit" className="btn btn-success d-block ml-auto">Добавить комментарий</button>
+                                                </AvForm>
 
                                             </div>
 
@@ -1123,6 +1148,7 @@ const mapStateToProps = (state) => {
     return {
 
         data: state.serData.data,
+        comments: state.serData.comments,
         modalOpendOne: state.serData.modalOpendOne,
         modalOpendTwo: state.serData.modalOpendTwo,
         modalOpendThree: state.serData.modalOpendThree,
@@ -1136,4 +1162,4 @@ const mapStateToProps = (state) => {
 
     }
 }
-export default connect(mapStateToProps, {sertification, updateState})(Ser);
+export default connect(mapStateToProps, {sertification, updateState, sendComment, getComments})(Ser);

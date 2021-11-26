@@ -26,3 +26,25 @@ export const sertification = ( data) => {
     }
 
 }
+
+export const getComments = (path) => (dispatch) => {
+    axios.get(API_PATH + "comment/" + path)
+        .then(res => {
+            dispatch(updateState({comments: res.data.data}));
+        })
+}
+
+export const sendComment = (e, v, form) => (dispatch, getState) => {
+    dispatch(updateState({isLoading: true}))
+    axios.post(API_PATH + "comment/add", {...v, jewelery: getState().serData.data.id})
+        .then(res => {
+            dispatch(getComments(getState().serData.path))
+            form.reset();
+        })
+        .catch(err => {
+
+        })
+        .finally(() => {
+            dispatch(updateState({isLoading: false}))
+        })
+}

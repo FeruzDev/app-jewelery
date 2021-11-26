@@ -9,7 +9,9 @@ const initialState = {
     modalOpendThree: false,
     modalOpendOne2: false,
     modalOpendTwo2: false,
-    modalOpendThree2: false
+    modalOpendThree2: false,
+    comments: [],
+    path: ""
 }
 
 export const serReduser = (state = initialState, action) => {
