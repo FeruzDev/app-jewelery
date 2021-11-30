@@ -36,7 +36,10 @@ const MainNavbar = (props) => {
     return (
         <div className='main-navbar container'>
             <Navbar   expand="md" className="bg-transparent">
-                <NavbarBrand href="/" style={{marginRight: "125px"}}><Link to='/'><img src="/images/logo.png" alt=""/></Link></NavbarBrand>
+                <NavbarBrand href="/" ><Link to='/'><img src="/images/logo.png" alt=""/></Link></NavbarBrand>
+                <NavItem className="d-md-none contact-tel">
+                    <a href="tel: +998333393334" target="_blank"> <img src="/images/phone.png" alt="" />{getText("n6")}</a>
+                </NavItem>
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={collapsed} navbar>
                     <Nav className="mr-auto" navbar>
@@ -89,7 +92,7 @@ const MainNavbar = (props) => {
                         </Dropdown>
 
 
-                        <NavItem>
+                        <NavItem className="contact-tel">
                             <a href="tel: +998333393334" target="_blank"> <img src="/images/phone.png" alt="" />{getText("n6")}</a>
                         </NavItem>
 

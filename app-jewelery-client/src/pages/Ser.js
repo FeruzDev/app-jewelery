@@ -206,31 +206,37 @@ const Ser = (props) => {
 
                                         <div className="col-md-6 ">
                                             <div className="st pl-3">
-                                                <h3>{getText("ser4")}</h3>
-
-                                                {props.comments.length > 0 ?
-                                                    props.comments.map(item => (
-                                                        <div>
-                                                            <hr className="bg-white"/>
-                                                            <div className="d-flex justify-content-between align-items-center">
-                                                                <h6>От: {item.fullName}</h6>
-                                                                <span>{item.createdAt.substr(0, 16)}</span>
-                                                            </div>
-
-                                                            <p><i>"{item.comment}"</i></p>
+                                                {props.data.comment?
+                                                    <>
+                                                        <h3>{getText("ser4")}</h3>
+                                                        <div className="stChildT p-3">
+                                                            <span className="text-dark">VVVV</span>
                                                         </div>
-                                                    )) : ""
+                                                    </> : ""
                                                 }
+                                                {/*{props.comments.length > 0 ?*/}
+                                                {/*    props.comments.map(item => (*/}
+                                                {/*        <div>*/}
+                                                {/*            <hr className="bg-white"/>*/}
+                                                {/*            <div className="d-flex justify-content-between align-items-center">*/}
+                                                {/*                <h6>От: {item.fullName}</h6>*/}
+                                                {/*                <span>{item.createdAt.substr(0, 16)}</span>*/}
+                                                {/*            </div>*/}
+
+                                                {/*            <p><i>"{item.comment}"</i></p>*/}
+                                                {/*        </div>*/}
+                                                {/*    )) : ""*/}
+                                                {/*}*/}
 
 
 
-                                                <h5 className="mt-5">Отправить комментарий</h5>
+                                                {/*<h5 className="mt-5">Отправить комментарий</h5>*/}
 
-                                                <AvForm   ref={(c) => form = c} onValidSubmit={(e, v) => props.sendComment(e,v, form)}>
-                                                    <AvField type="text" name="fullName" placeholder="Ваше имя" required/>
-                                                    <AvField type="textarea" name="comment" placeholder="Ваше комментарий"/>
-                                                    <button type="submit" className="btn btn-success d-block ml-auto">Добавить комментарий</button>
-                                                </AvForm>
+                                                {/*<AvForm   ref={(c) => form = c} onValidSubmit={(e, v) => props.sendComment(e,v, form)}>*/}
+                                                {/*    <AvField type="text" name="fullName" placeholder="Ваше имя" required/>*/}
+                                                {/*    <AvField type="textarea" name="comment" placeholder="Ваше комментарий"/>*/}
+                                                {/*    <button type="submit" className="btn btn-success d-block ml-auto">Добавить комментарий</button>*/}
+                                                {/*</AvForm>*/}
 
                                             </div>
 

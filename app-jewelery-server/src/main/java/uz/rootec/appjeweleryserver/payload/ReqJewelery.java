@@ -17,6 +17,9 @@ public class ReqJewelery {
 
     private UUID photo;
 
+    private String comment;
+
+
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="Asia/Tashkent")
     private Timestamp date;
 

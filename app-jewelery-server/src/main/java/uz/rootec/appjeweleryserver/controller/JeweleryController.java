@@ -97,6 +97,7 @@ public class JeweleryController {
             jewelery.setMetal(reqJewelery.getMetal());
             jewelery.setName(reqJewelery.getName());
             jewelery.setTotalWeight(reqJewelery.getTotalWeight());
+            jewelery.setComment(reqJewelery.getComment());
 
             if (reqJewelery.getPhoto() != null)
                 jewelery.setPhoto(attachmentRepository.getOne(reqJewelery.getPhoto()));

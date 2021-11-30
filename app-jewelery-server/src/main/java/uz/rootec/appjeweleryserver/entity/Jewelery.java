@@ -39,4 +39,7 @@ public class Jewelery extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private User expert;
+
+    @Column(columnDefinition = "text")
+    private String comment;
 }

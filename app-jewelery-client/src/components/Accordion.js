@@ -73,7 +73,7 @@ const Accordion = () => {
             <h3 className="newPagesTitle mb-5">{getText("F1")}</h3>
 
             <form>
-                {(localStorage.getItem("language") === "ru" ? accordionData : accordionDataUz).map((tab, index) => (
+                {(localStorage.getItem("language") === "uz" ? accordionDataUz : accordionData).map((tab, index) => (
                     <div key={index}>
                         <h2>
                             <button

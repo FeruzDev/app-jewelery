@@ -54,7 +54,7 @@ body{
     }
   }
 
-  .nav-item:nth-child(4){
+  .contact-tel{
     margin-left: auto;
 
     a{
@@ -62,10 +62,14 @@ body{
       width: 120px;
       height: 40px;
       padding: 10px 20px;
+      color: #FFFFFF!important;
 
       img{
         margin-right: 15px;
       }
+    }
+    @media (max-width: 767px){
+      margin-left: 0;
     }
   }
 }
@@ -1934,14 +1938,18 @@ body{
 
     .navbar-brand{
       position: relative;
-      &::after{
-        content: '+998333393334';
-        position: absolute;
-        top: 25px;
-        left: 110px;
-        color: #FFFFFF;
-        font-size: 16px;
-
+      //&::after{
+      //  content: '+998333393334';
+      //  position: absolute;
+      //  top: 25px;
+      //  left: 110px;
+      //  color: #FFFFFF;
+      //  font-size: 16px;
+      //
+      //}
+      margin-right: 125px;
+      @media(max-width: 767px){
+        margin-right: 0;
       }
     }
     .navbar-toggler{
@@ -1963,9 +1971,9 @@ body{
       z-index: 9999;
       position: relative;
       .nav-item{
-        margin-right: 24px;
+        margin-right: 0;
 
-        margin-top: 10px;
+        margin-top: 20px;
         a{
           color: #F3F9FB;
         }
@@ -1974,23 +1982,26 @@ body{
         }
       }
 
-      .nav-item:nth-child(4){
 
-        margin-top: 20px;
-        margin-left: 0;
+    }
+
+  }
+  .contact-tel{
+
+    margin-left: 0;
+    list-style: none;
 
 
+    a{
+      border: 2px solid #4CBBB9;
+      width: 120px;
+      color: #FFFFFF!important;
 
-        a{
-          border: 2px solid #4CBBB9;
-          width: 120px;
-          height: 40px;
-          padding: 10px 20px;
+      height: 40px;
+      padding: 10px 20px;
 
-          img{
-            margin-right: 15px;
-          }
-        }
+      img{
+        margin-right: 15px;
       }
     }
   }

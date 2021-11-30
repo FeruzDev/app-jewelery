@@ -92,7 +92,7 @@ const Jewelery = (props) => {
                         <AvField type="text" name="metal" label="Metal" required/>
                         <AvField type="number" name="hallMark" label="Hall Mark" required/>
                         <AvField type="date" name="date" value={props.selectedJewelery?.date.substr(6, 4) + "-" + props.selectedJewelery?.date.substr(3, 2) + "-" + props.selectedJewelery?.date.substr(0, 2)}  label="Date" required/>
-
+                        <AvField type="textarea" name="comment" label="Comment"/>
                         {props.diamonds.map((item, index) => (
                             <div className="diamonds border mt-3 p-1">
                                 <h5 className="mt-3">Diamond {index + 1} <span className="close" style={{cursor: "pointer"}}>x</span></h5>
@@ -106,7 +106,7 @@ const Jewelery = (props) => {
                                         }}>x</span></h5>
                                         <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].name`} label="Name" required/>
                                         <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].valueOne`} label="Value one" required/>
-                                        <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].valueTwo`} label="Value two" required/>
+                                        <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].valueTwo`} label="Value two"/>
                                     </div>
                                 ))}
 
