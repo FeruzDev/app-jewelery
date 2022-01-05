@@ -27,6 +27,8 @@ public interface CustomJewelery {
 
     String getSerial();
 
+    String getComment();
+
     @Value("#{target.expert!=null?target.expert.firstName:null}")
     String getExpertFirstName();
 

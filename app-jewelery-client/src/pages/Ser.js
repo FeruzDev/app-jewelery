@@ -210,7 +210,7 @@ const Ser = (props) => {
                                                     <>
                                                         <h3>{getText("ser4")}</h3>
                                                         <div className="stChildT p-3">
-                                                            <span className="text-dark">VVVV</span>
+                                                            <span className="text-dark">{props.data.comment}</span>
                                                         </div>
                                                     </> : ""
                                                 }
@@ -333,24 +333,28 @@ const Ser = (props) => {
 
                                         <div className="col-md-6 ">
                                             <div className="st pl-3">
-                                                <h3>{getText("ser4")}</h3>
-                                                <div className="stChildT">
-                                                    <span>VVVV</span>
-                                                </div>
+                                                {props.data.comment?
+                                                    <>
+                                                        <h3>{getText("ser4")}</h3>
+                                                        <div className="stChildT p-3">
+                                                            <span className="text-dark">{props.data.comment}</span>
+                                                        </div>
+                                                    </> : ""
+                                                }
 
                                             </div>
 
                                         </div>
 
-                                        <div className="col-md-6">
-                                            <div className="st pr-5 pl-3">
-                                                <h3>Эксперт-геммолог</h3>
-                                                <div className="stChildB">
-                                                    <span>{props.data.expertFirstName?.substr(0, 1)}. {props.data.expertLastName}</span>
-                                                </div>
+                                        {/*<div className="col-md-6">*/}
+                                        {/*    <div className="st pr-5 pl-3">*/}
+                                        {/*        <h3>Эксперт-геммолог</h3>*/}
+                                        {/*        <div className="stChildB">*/}
+                                        {/*            <span>{props.data.expertFirstName?.substr(0, 1)}. {props.data.expertLastName}</span>*/}
+                                        {/*        </div>*/}
 
-                                            </div>
-                                        </div>
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                     </div>
 
 
