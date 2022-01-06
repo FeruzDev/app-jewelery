@@ -1244,19 +1244,30 @@ body{
 }
 
 .logos-pair{
+  .mob{
+    display: none;
+  }
+  .desc{
+    display: block;
+  }
   h2{
     font-weight: 600;
-    font-size: 40px;
-    line-height: 48px;
-    margin-top: 112px;
-    text-align: center;
+    font-size: 40px  ;
+    line-height: 48px ;
+
+    padding: 22px 40px;
+
     margin-bottom: 20px;
+    text-align: center;
   }
   .container{
 
     .row{
       .col-md-3{
         margin-top: 57px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
         img{
           width: 80%;
         }
@@ -1267,10 +1278,17 @@ body{
 @media  (max-width: 600px) {
 
   .logos-pair{
+
+    .mob{
+      display: block;
+    }
+    .desc{
+      display: none;
+    }
     h2{
       font-weight: 600;
-      font-size: 40px;
-      line-height: 48px;
+      font-size: 24px !important;
+      line-height: 30px !important;
       margin-top: 112px;
       text-align: center;
       margin-bottom: 20px;
@@ -1289,9 +1307,23 @@ body{
     }
   }
 
+  .add-more{
+    background: #4CBBB9;
+    border-radius: 56px;
+    border: none;
+    display: block;
+    color: #F3F9FB;
+    padding: 3px 10px;
+    margin: 40px auto;
+  }
 
   .map{
     padding: 0;
+    h2{
+      font-size: 24px !important;
+      padding: 0 60px;
+      line-height: 30px;
+    }
   }
   .numbers-pair{
 
@@ -1299,8 +1331,8 @@ body{
     margin-bottom: 87px;
     h2{
       font-weight: 600;
-      font-size: 16px;
-      line-height: 48px;
+      font-size: 24px !important;
+      line-height: 30px;
       margin-top: 48px;
       text-align: center;
     }
@@ -1322,20 +1354,22 @@ body{
         }
         p{
           text-align: center;
-          font-size: 28px;
+          font-size: 26px;
           line-height: 32px;
           color: #F3F9FB;
           margin-top: -20px;
+
           font-weight: 300;
+          padding-right: 0 !important;
         }
       }
-      div:nth-child(2){
-        p{
-          margin-top: -40px;
-          padding-left:30px;
-          padding-right: 50px;
-        }
-      }
+      //div:nth-child(2){
+      //  p{
+      //    margin-top: -40px;
+      //    padding-left:40px;
+      //    padding-right:  0px;
+      //  }
+      //}
     }
   }
 
@@ -1528,7 +1562,7 @@ body{
         }
       }
       .nav-tabs{
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         border-bottom: 0px  ;
         .nav-item{
           padding-bottom: 10px;
@@ -1577,7 +1611,7 @@ body{
             text-align: center;
             p{
               color: #17223B;
-              padding-top: 48px;
+              padding-top: 0px;
               padding-left: 24px;
               padding-right: 24px;
               font-size: 13px;
@@ -1748,6 +1782,7 @@ body{
     z-index: -1;
     margin-top: 50px;
 
+    overflow-x: hidden;
     height: auto;
     .container{
       padding: 0;
