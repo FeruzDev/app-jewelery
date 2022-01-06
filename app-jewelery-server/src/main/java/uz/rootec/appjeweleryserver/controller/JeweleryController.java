@@ -23,10 +23,7 @@ import uz.rootec.appjeweleryserver.repository.DiamondRepository;
 import uz.rootec.appjeweleryserver.repository.JeweleryRepository;
 import uz.rootec.appjeweleryserver.security.CurrentUser;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Sherlock on 14.07.2021.
@@ -106,6 +103,8 @@ public class JeweleryController {
 
             List<ReqDiamond> diamonds = reqJewelery.getDiamonds();
 
+            List<UUID> diamondsId =new ArrayList<>();
+
             for (ReqDiamond diamond : diamonds) {
                 List<ReqCharacteristic> characteristics = diamond.getCharacteristics();
                 Diamond newDiamond;
@@ -120,8 +119,10 @@ public class JeweleryController {
                     newDiamond.setJewelery(jewelery);
                 }
 
-                diamondRepository.save(newDiamond);
+                Diamond savedDiamond = diamondRepository.save(newDiamond);
+                diamondsId.add(savedDiamond.getId());
 
+                List<UUID> characteristicsId = new ArrayList<>();
                 for (ReqCharacteristic characteristic : characteristics) {
                     if (characteristic.getId() == null){
                         Characteristic newCharacteristic = new Characteristic(
@@ -130,7 +131,8 @@ public class JeweleryController {
                                 characteristic.getValueTwo(),
                                 newDiamond
                         );
-                        characteristicRepository.save(newCharacteristic);
+                        Characteristic savedCharacteristics = characteristicRepository.save(newCharacteristic);
+                        characteristicsId.add(savedCharacteristics.getId());
                     } else {
                         Characteristic characteristic_not_found = characteristicRepository.findById(characteristic.getId()).orElseThrow(() -> new Exception("Characteristic not found"));
                         characteristic_not_found.setDiamond(newDiamond);
@@ -138,10 +140,28 @@ public class JeweleryController {
                         characteristic_not_found.setValueOne(characteristic.getValueOne());
                         characteristic_not_found.setValueTwo(characteristic.getValueTwo());
 
-                        characteristicRepository.save(characteristic_not_found);
+                        Characteristic save = characteristicRepository.save(characteristic_not_found);
+                        characteristicsId.add(save.getId());
+                    }
+                }
+                if (reqJewelery.getId()!=null && diamond.getId() != null){
+                    List<CustomCharacteristic> all = characteristicRepository.findAllByDiamondId(diamond.getId());
+                    for (CustomCharacteristic customCharacteristic : all) {
+                        if (!characteristicsId.contains(customCharacteristic.getId())){
+                            characteristicRepository.deleteById(customCharacteristic.getId());
+                        }
                     }
                 }
 
+            }
+
+            if (reqJewelery.getId()!=null){
+                List<CustomDiamond> all = diamondRepository.findAllByJeweleryId(reqJewelery.getId());
+                for (CustomDiamond customDiamond : all) {
+                    if (!diamondsId.contains(customDiamond.getId())){
+                        diamondRepository.deleteById(customDiamond.getId());
+                    }
+                }
             }
 
             if (reqJewelery.getId() != null) {
