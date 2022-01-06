@@ -19,6 +19,8 @@ import NotFound from "./pages/NotFound";
 import DirectorUsers from "./pages/DirectorUsers";
 import Icons from "./views/Icons";
 import Jewelery from "./pages/Jewelery";
+import PageData from "./pages/PageData";
+import Logo from "./pages/Logo";
 
 function App(props) {
     useEffect(() => {
@@ -43,6 +45,8 @@ function App(props) {
                 <PrivateRoute exact path="/admin/users" component={AdminUsers} role="admin"/>
                 <PrivateRoute exact path="/admin/workers" component={DirectorUsers} role="director"/>
                 <PrivateRoute exact path="/admin/jewelery" component={Jewelery} role="director"/>
+                <PrivateRoute exact path="/admin/data" component={PageData} role="director"/>
+                <PrivateRoute exact path="/admin/logo" component={Logo} role="director"/>
 
                 <Route component={NotFound}/>
             </Switch>

@@ -8,6 +8,8 @@ import Maps from "./views/Maps.js";
 import Notifications from "./views/Notifications.js";
 import Upgrade from "./views/Upgrade.js";
 import Jewelery from "./pages/Jewelery";
+import PageData from "./pages/PageData";
+import Logo from "./pages/Logo";
 
 const dashboardRoutes = [
   {
@@ -37,6 +39,20 @@ const dashboardRoutes = [
     name: "Jewelery",
     icon: "fa fa-ring",
     component: Jewelery,
+    layout: "/admin",
+  },
+  {
+    path: "/admin/data",
+    name: "PageData",
+    icon: "fa fa-data",
+    component: PageData,
+    layout: "/admin",
+  },
+  {
+    path: "/admin/logo",
+    name: "Logo",
+    icon: "fa fa-photo",
+    component: Logo,
     layout: "/admin",
   },
   // {
