@@ -45,9 +45,9 @@ export const createJewelery = (event, values) => (dispatch, getState) => {
 }
 
 export const getJeweleries = (page) => (dispatch) => {
-    axios.get(API_PATH + "jewelery?size=100&page=" + page, CONFIG)
+    axios.get(API_PATH + "jewelery?size=10&page=" + page, CONFIG)
         .then(res => {
-            dispatch(updateState({jeweleries: res.data.data?.content}))
+            dispatch(updateState({jeweleries: res.data.data?.content, page: page, totalPages: res.data.data?.totalPages}))
         })
 }
 

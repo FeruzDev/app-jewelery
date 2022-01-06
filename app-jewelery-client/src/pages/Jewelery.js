@@ -5,6 +5,7 @@ import {createJewelery, getJeweleries, updateState, uploadPhoto, deleteJewelery}
 import {AvField, AvForm} from "availity-reactstrap-validation";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {API_PATH} from "../tools/constants";
+import PaginationComponent from "../components/PaginationComponent";
 
 
 const Jewelery = (props) => {
@@ -17,14 +18,26 @@ const Jewelery = (props) => {
     console.log(props.characteristics);
 
     const getCharacteristics = (diamonds) => {
-        diamonds?.map((item, index) => item.characteristics?.map((item2, index2) => props.updateState({characteristics: props.characteristics.concat({diamondIndex: index, index: index2, ...item2, ...item2})})))
+        return diamonds?.map((item, index) => {
+            props.updateState({characteristics: item.characteristics?.map((item2, index2) => {
+                    // props.updateState({characteristics: props.characteristics.concat({diamondIndex: index, index: index2, ...item2})});
+                    return {diamondIndex: index, index: index2, ...item2}
+                })})
+            return {}
+        })
     }
 
+    const getData = (payload) => {
+        props.getJeweleries(payload.page, "");
+    }
+
+    console.log(props.diamonds)
+    console.log(props.characteristics)
     return (
         <AdminLayout>
             <div className="content">
                 <button type="button" className='btn btn-secondary my-3 d-block ml-auto'
-                        onClick={() => props.updateState({isOpen: true})}>Add Jewelery
+                        onClick={() => props.updateState({isOpen: true, photo: null, diamonds: [], characteristics: [], selectedJewelery: null,})}>Add Jewelery
                 </button>
 
                 <table className="table table-dark">
@@ -52,19 +65,25 @@ const Jewelery = (props) => {
                                 <a href={"http://gcu.uz/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
                             </td>
                             <td>
-                                <button type="button" className="btn btn-success mr-2" onClick={() => {props.updateState({isOpen: true, selectedJewelery: item, diamonds: item.diamonds}); getCharacteristics(item.diamonds)}}>Изменить</button>
+                                <button type="button" className="btn btn-success mr-2" onClick={() => {props.updateState({nimadir: getCharacteristics(item.diamonds), isOpen: true, selectedJewelery: item, diamonds: item.diamonds, photo: item.photo, }); }}>Изменить</button>
                                 <button type="button" className="btn btn-danger" onClick={() => props.updateState({isOpenDelete: true, selectedId: item.id})}>Удалить</button>
                             </td>
                         </tr>
                     ))}
                     </tbody>
                 </table>
+
+                <PaginationComponent
+                    totalPages={props.totalPages}
+                    currentPage={props.page}
+                    getPageData={getData}
+                />
             </div>
 
 
 
 
-            <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false, diamonds: [], characteristics: [], selectedJewelery: null})} className="bg-secondary">
+            <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false, diamonds: [], characteristics: [], selectedJewelery: null, photo: null})} className="bg-secondary">
                 <AvForm onValidSubmit={props.createJewelery} model={props.selectedJewelery ? {...props.selectedJewelery, date: props.selectedJewelery.date.substr(0, 10)}: {}}>
                     <ModalHeader className="bg-secondary">
                         Add Jewelery
@@ -95,11 +114,23 @@ const Jewelery = (props) => {
                         <AvField type="textarea" name="comment" label="Comment"/>
                         {props.diamonds.map((item, index) => (
                             <div className="diamonds border mt-3 p-1">
-                                <h5 className="mt-3">Diamond {index + 1} <span className="close" style={{cursor: "pointer"}}>x</span></h5>
+                                {props.selectedJewelery ?
+                                    <AvField type="text" name={`diamonds[${index}].id`} className="d-none" /> :""
+                                }
+                                <h5 className="mt-3">Diamond {index + 1} <span className="close" style={{cursor: "pointer"}} onClick={() => {
+                                    props.updateState({characteristics: props.characteristics.filter((it, inddd) => it.diamondIndex !== index),
+                                        diamonds: props.diamonds.filter((it, indd) => index !== indd),
+
+                                    })
+                                }
+                                }>x</span></h5>
                                 <AvField type="number" name={`diamonds[${index}].diamond`} label="Weight" required/>
 
                                 {props.characteristics.filter(item => item.diamondIndex === index).map((item2, index2) => (
                                     <div className="characteristics border border-warning mt-3 p-1">
+                                        {props.selectedJewelery ?
+                                            <AvField type="text" name={`diamonds[${index}].characteristics[${index2}].id`} className="d-none" /> :""
+                                        }
                                         <h5 className="mt-3">Characteristic {index2 + 1} <span className="close" style={{cursor: "pointer"}} onClick={() => {
                                             // console.log(props.characteristics.splice(item.index, 1));
                                             props.updateState({characteristics: props.characteristics.filter(item => item.index !== item2.index)})
@@ -162,7 +193,9 @@ const mapStateToProps = (state) => {
         diamonds: state.jewelery.diamonds,
         characteristics: state.jewelery.characteristics,
         selectedId: state.jewelery.selectedId,
-        selectedJewelery: state.jewelery.selectedJewelery
+        selectedJewelery: state.jewelery.selectedJewelery,
+        page: state.jewelery.page,
+        totalPages: state.jewelery.totalPages,
     }
 }
 
