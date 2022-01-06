@@ -28,7 +28,7 @@ const HomeCompany = () => {
 
                     <h1>Gemstone Certification of Uzbekistan</h1>
 
-                    <h3>{getText("HM2")}</h3>
+                    {/*<h3>{getText("HM2")}</h3>*/}
 
                 </div>
 

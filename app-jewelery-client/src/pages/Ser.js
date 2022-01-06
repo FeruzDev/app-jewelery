@@ -109,12 +109,12 @@ const Ser = (props) => {
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
-                                                <div className="st">
-                                                    <h3>Date</h3>
-                                                    <div className="stChild">
-                                                        <span>{props.data.date?.slice(0, 10)}</span>
-                                                    </div>
-                                                </div>
+                                                {/*<div className="st">*/}
+                                                {/*    <h3>Date</h3>*/}
+                                                {/*    <div className="stChild">*/}
+                                                {/*        <span>{props.data.date?.slice(0, 10)}</span>*/}
+                                                {/*    </div>*/}
+                                                {/*</div>*/}
                                                 <div className="st">
                                                     <h3>Total weight, g</h3>
                                                     <div className="stChild">

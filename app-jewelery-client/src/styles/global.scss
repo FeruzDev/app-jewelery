@@ -1189,8 +1189,156 @@ body{
 
 }
 
+.numbers-pair{
+  width: 100%;
 
+  margin-top: 65px;
+  margin-bottom: 87px;
+  h2{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .numbers-group{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 47px;
+    div{
+      width: 33.3%;
+      h1{
+        font-size: 96px;
+        color: #F3F9FB;
+        font-weight: normal;
+        margin-bottom: 0;
+      }
+      p{
+        text-align: center;
+        font-size: 30px;
+        line-height: 32px;
+        color: #F3F9FB;
+        margin-top: -20px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.map{
+  padding-left: 20px;
+  padding-right: 20px;
+  h2{
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 87px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  iframe{
+
+    width: 100%;
+    height: 603px;
+  }
+}
+
+.logos-pair{
+  h2{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 112px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .container{
+
+    .row{
+      .col-md-3{
+        margin-top: 57px;
+        img{
+          width: 80%;
+        }
+      }
+    }
+  }
+}
 @media  (max-width: 600px) {
+
+  .logos-pair{
+    h2{
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      margin-top: 112px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .container{
+      .row{
+        .col-md-3{
+          margin-top: 57px;
+          width: 50% !important;
+          text-align: center;
+          img{
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+
+
+  .map{
+    padding: 0;
+  }
+  .numbers-pair{
+
+    margin-top: 65px;
+    margin-bottom: 87px;
+    h2{
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 48px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .numbers-group{
+      display: flex;
+      flex-direction: column;
+      margin-top: 47px;
+      justify-content: center;
+
+
+      div{
+        width: 70%;
+        margin: 25px auto;
+        h1{
+          font-size: 65px;
+          color: #F3F9FB;
+          font-weight: normal;
+          margin-bottom: 0;
+        }
+        p{
+          text-align: center;
+          font-size: 28px;
+          line-height: 32px;
+          color: #F3F9FB;
+          margin-top: -20px;
+          font-weight: 300;
+        }
+      }
+      div:nth-child(2){
+        p{
+          margin-top: -40px;
+          padding-left:30px;
+          padding-right: 50px;
+        }
+      }
+    }
+  }
+
 
   .title{
 
@@ -1323,6 +1471,7 @@ body{
       }
     }
   }
+
 
   .home-company{
     padding-top: 12px;
@@ -1819,10 +1968,6 @@ body{
     }
   }
 
-
-
-
-
   .search{
 
     .search-banner{
@@ -2269,4 +2414,6 @@ body{
     text-align: center;
 
   }
+
+
 }
