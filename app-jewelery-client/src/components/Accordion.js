@@ -6,7 +6,7 @@ const Accordion = () => {
         {
             id: '0',
             title: ' Что мне даст наличие сертификата?',
-            content: `  Ценность ваш изделий автоматически увеличится в цене и вы сможете продать ваши украшения дороже`,
+            content: ` Ценность ваших изделий автоматически увеличится в цене и вы сможете продать ваши украшения дороже`,
             isActive: false
 
         },
@@ -14,14 +14,14 @@ const Accordion = () => {
         {
             id: '2',
             title: 'Сколько времени требуется для получения сертификата?',
-            content: ` По времени изготовления цифрового сертификата занимает от 1 до 24 часов. Бумажный сертификат изготавливается от 1 до 72 часов. `,
+            content: ` По времени изготовление цифрового сертификата занимает от 1 до 24 часов. Бумажный сертификат изготавливается от 1 до 72 часов. `,
             isActive: false
         },
 
         {
             id: '4',
             title: '  Как проверить подлинность сертификата?',
-            content: ` Подлинность проверяется через 12-ти значный код на сертификаты который вам выдается.`,
+            content: ` Подлинность проверяется через 16-ти значный ID на сертификат который вам выдается.`,
             isActive: false
         },
 
@@ -48,7 +48,7 @@ const Accordion = () => {
         {
             id: '4',
             title: '  Sertifikatning haqiqiyligini qanday tekshirish mumkin?',
-            content: ` Haqiqiylik sizga berilgan 12 xonali sertifikat kodi orqali tasdiqlanadi.`,
+            content: ` GCU sertifikatiga ega olmos zargarlik buyumlarini sotib olsangiz, zargarlik buyumlarining haqiqiyligi hujjatlarga mos kelishiga va GCU.uz veb-saytida noyob 16 talik ID raqamiga ega ekanligiga qo'shimcha ishonchga ega bo'lasiz.`,
             isActive: false
         },
 

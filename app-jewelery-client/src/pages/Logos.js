@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {API_PATH} from "../tools/constants";
 import axios from "axios";
+import {getText} from "../locales";
 
 const Logos = () => {
 
@@ -19,7 +20,7 @@ const Logos = () => {
     }, [])
     return (
         <div className="logos-pair">
-            <h2>Ювелирные бренды сертифицированные <br/> в базе GCU</h2>
+            <h2 className="mt-5">{getText("nu6")} </h2>
 
             <div className="container desc">
                 <div className="row">

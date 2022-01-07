@@ -4,7 +4,7 @@ export const UZ = {
     headerTitle: "Olmos va qimmatbaho zargarlik buyumlarini baholash",
     checkTitle:   "Sertifikat identifikatorini yuboring ",
     checkButton: "Tekshirish",
-    HM1: "О компании",
+    HM1: "Kompaniya haqida",
     HM2: "Sertifikatlaringizning haqiqiyligini tekshiring",
     HM3: "Bu nima?",
     HM4: "U qanday ishlaydi?",
@@ -69,5 +69,15 @@ export const UZ = {
     ser1: "Mahsulot haqida ma'lumot",
     ser2: "Xususiyatlar",
     ser3: "JADVAL",
-    ser4: "Izoh"
+    ser4: "Izoh",
+
+    nu1: "Gemstone certification of Uzbekistan raqamlarda",
+    nu2: "Zargarlik buyumlari",
+    nu3: "O'zbekiston bo'ylab do'konlar",
+    nu4: "Gemologiya mutaxassislari bizga ishonishadi",
+
+    nu5: "GCU - bu O'zbekistondagi barcha olmos zargarlik buyumlari ma'lumotlari qo'shiladigan baza bo'lgan mahalliy tizimdir",
+    nu6: "GCU bazasida sertifikatlangan zargarlik brendlari",
+
+
 }

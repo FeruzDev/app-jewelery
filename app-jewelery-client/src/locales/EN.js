@@ -1,17 +1,17 @@
-export const RU = {
-    search: "Поиск в сайте",
-    news: "Новости",
-    headerTitle: "Оценка бриллиантовых и драгоценных украшений",
-    checkTitle:   "Впешите ID своего сертификата",
-    checkButton: "Проверить",
-    HM1: "О компании",
-    HM2: "Проверьте подлинность ваших сертификатов",
-    HM3: "Что это такое?",
-    HM4: "Как это работает?",
-    HM5: "Что вы получите?",
-    HM6: "GIA - это система в которой специалисты оценщики добавляют в базу ваши данные камней. Это документ подтверждающий ценность ваших драгоценных камней",
-    HM7: "Чтобы сделать сертификат для Ваших ювелирных изделий, от вас требуется, наличие ювелирного изделия, которое имеет драгоценные или полудрагоценные камни. Дальше вам нужно обратиться к одному из наших специалистов геомологов, которые есть у нас на сайте. После, того как Ваше изделие оценят, в течение 24 часов оно попадет в базу GCU и вы сможете проверить его введя уникальный 12 значный код.",
-    HM8: "Сертификат на бриллиант — важный документ, подтверждающий соответствие вашего конкретного камня стандартам, используемым нашей лабораторией при его геммологической оценке.",
+export const EN = {
+    search: "Site search",
+    news: "News",
+    headerTitle: "Evaluation of diamond and precious jewelry",
+    checkTitle:   "Enter the ID of your certificate",
+    checkButton: "Check",
+    HM1: "About the company",
+    HM2: "Verify the authenticity of your certificates",
+    HM3: "What is it?",
+    HM4: "How does it work?",
+    HM5: "What will you get?",
+    HM6: "GIA is a system in which expert appraisers add your stone data to the database. This is a document confirming the value of your precious stones",
+    HM7: "To make a certificate for your jewelry, you are required to have a jewelry that has precious or semi-precious stones. Next, you need to contact one of our geomologists, who are available on our website. After your product is evaluated, within 24 hours it will get into the GCU database and you can check it by entering a unique 16-digit ID",
+    HM8: "A diamond certificate is an important document confirming the compliance of your particular stone with the standards used by our laboratory for its gemological evaluation.",
 
 
 
@@ -24,8 +24,8 @@ export const RU = {
 
 
 
-    P1: "Процедура",
-    P2: "Как получить сертификат?",
+    P1: "Procedure",
+    P2: "How do I get a certificate?",
 
 
     PI1: "Обращаетесь к эксперту гемологу который оценит ваше украшение",
@@ -75,12 +75,12 @@ export const RU = {
     ser3: "ТАБЛИЦА",
     ser4: "Комментарий",
 
+
     nu1: "Gemstone Cerification of Uzbekistan в цифрах",
     nu2: "Ювелирных изделия",
     nu3: "Магазинов по всему Узбекистану",
     nu4: "Специалистов гемологов доверяют нам",
 
-    nu5: "Местоположение магазинов на сайте GCU",
-    nu6: "Ювелирные бренды сертифицированные в базе GCU",
+    nu5: "Ювелирные бренды сертифицированные в базе GCU",
 
 }

@@ -29,7 +29,6 @@ function App(props) {
             {!window.location.href.includes("/admin") ?
                 <Navbar/> : ""
             }
-
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/experts" component={Experts}/>

@@ -1,31 +1,44 @@
 @import "fonts";
 @import "colors";
 
-
+@font-face {
+  font-family: "montserrat-public";
+  src: url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap');
+  font-display: swap;
+}
 
 
 body{
   background: #393E46;
   color: #F3F9FB;
-
-
+  font-family: "montserrat-public" ,sans-serif !important;
 }
 
 
 .main-navbar{
   height: 100px;
 
+  .navbar-brand{
+    margin-right: 50px;
+    display: block;
+  }
 
 .navbar-nav{
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
+
   .lang-btn{
+    margin-left: 48px;
     button{
       background-color: transparent;
+
+
+      padding: 10px;
       img{
         margin-right: 10px;
+        margin-top:  -2px;
       }
       &::after{
         margin-left: 15px;
@@ -44,7 +57,7 @@ body{
   }
 
   .nav-item{
-    margin-right: 24px;
+    margin-left: 48px;
 
     a{
       color: #F3F9FB;
@@ -55,6 +68,24 @@ body{
   }
 
   .contact-tel{
+    margin-left: auto;
+
+    a{
+      border: 2px solid #4CBBB9;
+      width: 120px;
+      height: 40px;
+      padding: 10px 20px;
+      color: #FFFFFF!important;
+
+      img{
+        margin-right: 15px;
+      }
+    }
+    @media (max-width: 767px){
+      margin-left: 0;
+    }
+  }
+  .contact-twel2{
     margin-left: auto;
 
     a{
@@ -2118,16 +2149,7 @@ body{
 
     .navbar-brand{
       position: relative;
-      //&::after{
-      //  content: '+998333393334';
-      //  position: absolute;
-      //  top: 25px;
-      //  left: 110px;
-      //  color: #FFFFFF;
-      //  font-size: 16px;
-      //
-      //}
-      margin-right: 125px;
+      left: 40%;
       @media(max-width: 767px){
         margin-right: 0;
       }
@@ -2167,10 +2189,27 @@ body{
 
   }
   .contact-tel{
+    //display: none !important;
 
-    margin-left: 0;
     list-style: none;
 
+    position: absolute;
+    left: 50px;
+    top: 35px;
+    a{
+
+      span{
+        display: none;
+      }
+    }
+  }
+
+  .contact-twel2{
+
+    margin-left: 45px !important;
+    list-style: none;
+
+    margin-top: 30px !important;
 
     a{
       border: 2px solid #4CBBB9;
@@ -2185,7 +2224,6 @@ body{
       }
     }
   }
-
 
 
   .ser{

@@ -28,7 +28,7 @@ const Check = (props) => {
                         name="ForSer"
 
                         type="text"
-                        placeholder='Ваше ID'
+                        placeholder='Ваш ID'
                     />
                     <button > {getText("checkButton")}</button>
 

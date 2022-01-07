@@ -38,7 +38,7 @@ const MainNavbar = (props) => {
             <Navbar   expand="md" className="bg-transparent">
                 <NavbarBrand href="/" ><Link to='/'><img src="/images/logo.png" alt=""/></Link></NavbarBrand>
                 <NavItem className="d-md-none contact-tel">
-                    <a href="tel: +998333393334" target="_blank"> <img src="/images/phone.png" alt="" />{getText("n6")}</a>
+                    <a href="tel: +998333393334" target="_blank"> <img src="/images/phone.png" alt="" /><span>{getText("n6")}</span></a>
                 </NavItem>
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={collapsed} navbar>
@@ -46,29 +46,18 @@ const MainNavbar = (props) => {
                         <NavItem>
                             <Link to="/">{getText("n1")}</Link>
                         </NavItem>
-
                         {/*<NavItem>*/}
                         {/*    <Link to="/experts">{getText("n2")}</Link>*/}
                         {/*</NavItem>*/}
-
-
-
                         {/*<NavItem>*/}
                         {/*    <Link to="/procedure"> {getText("n3")}</Link>*/}
                         {/*</NavItem>*/}
-
-
-
                         <NavItem>
                             <Link to="/search">{getText("n4")} </Link>
                         </NavItem>
-
-
-
                         {/*<NavItem>*/}
                         {/*    <Link to="/company">{getText("n5")}</Link>*/}
                         {/*</NavItem>*/}
-
                         <Dropdown className="lang-btn" isOpen={dropdownOpen} toggle={toggle}>
                             <DropdownToggle caret>
                                 <img src="/images/icon/eath.png" alt=""/>
@@ -85,6 +74,10 @@ const MainNavbar = (props) => {
 
                                     O'zbek tili
                                 </DropdownItem>
+                                <DropdownItem  onClick={() => changeLang('en')} >
+
+                                   English
+                                </DropdownItem>
 
 
 
@@ -92,7 +85,7 @@ const MainNavbar = (props) => {
                         </Dropdown>
 
 
-                        <NavItem className="contact-tel">
+                        <NavItem className="contact-twel2">
                             <a href="tel: +998333393334" target="_blank"> <img src="/images/phone.png" alt="" />{getText("n6")}</a>
                         </NavItem>
 
