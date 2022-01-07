@@ -8,6 +8,8 @@ import Maps from "./views/Maps.js";
 import Notifications from "./views/Notifications.js";
 import Upgrade from "./views/Upgrade.js";
 import Jewelery from "./pages/Jewelery";
+import PageData from "./pages/PageData";
+import Logo from "./pages/Logo";
 
 const dashboardRoutes = [
   {
@@ -17,6 +19,7 @@ const dashboardRoutes = [
     icon: "nc-icon nc-close-33",
     component: Upgrade,
     layout: "/admin",
+    role: 'admin'
   },
   {
     path: "/admin/users",
@@ -24,20 +27,40 @@ const dashboardRoutes = [
     icon: "fa fa-users",
     component: Dashboard,
     layout: "/admin",
+    role: 'admin'
   },
-  {
-    path: "/admin/workers",
-    name: "Workers",
-    icon: "fa fa-users",
-    component: UserProfile,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/admin/workers",
+  //   name: "Workers",
+  //   icon: "fa fa-users",
+  //   component: UserProfile,
+  //   layout: "/admin",
+  // },
   {
     path: "/admin/jewelery",
     name: "Jewelery",
     icon: "fa fa-ring",
     component: Jewelery,
     layout: "/admin",
+    role: 'worker'
+  },
+  {
+    path: "/admin/data",
+    name: "PageData",
+    icon: "fa fa-data",
+    component: PageData,
+    layout: "/admin",
+    role: 'admin'
+
+  },
+  {
+    path: "/admin/logo",
+    name: "Logo",
+    icon: "fa fa-photo",
+    component: Logo,
+    layout: "/admin",
+    role: 'admin'
+
   },
   // {
   //   path: "/table",

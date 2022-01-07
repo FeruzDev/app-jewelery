@@ -50,7 +50,7 @@ const AdminUsers = (props) => {
                         <AvField type="text" name="phoneNumber" label="Phone number" required/>
                         <AvField type="email" name="email" label="Email" required/>
                         <AvField type="password" name="password" label="Password" required/>
-                        <AvField type="select" name="role" label="Role" required>
+                        <AvField type="select" name="role" label="Role" disabled value="Worker">
                             <option>Select</option>
                             <option value="Worker">Worker</option>
                             <option value="Director">Director</option>

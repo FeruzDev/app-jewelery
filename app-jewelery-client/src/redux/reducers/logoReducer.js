@@ -1,21 +1,19 @@
-import {UPDATESTATE} from "../types/jeweleryType";
+/**
+ * Created by Sherlock on 07.01.2022.
+ */
+import {UPDATESTATE} from "../types/logoType";
 
 const initialState = {
     isOpen: false,
     isOpenDelete: false,
     selectedId: null,
-    jeweleries: [],
+    logos: [],
     photo: null,
-    diamonds: [],
-    characteristics: [],
-    selectedJewelery: null,
-    totalElements: 0,
-    totalPages: 0,
-    serialSuccess: true,
+    selectedLogo: null,
     isLoading: false
 }
 
-export const jeweleryReducer = (state = initialState, action) => {
+export const logoReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATESTATE:
             return {...state, ...action.payload}

@@ -30,7 +30,7 @@ export const login = (event, data) => (dispatch) => {
                 .set(TOKEN_NAME, res.data.tokenType + " " + res.data.accessToken)
                 .then(function() {
                     setTimeout(() => {
-                        window.location.href = "/admin/users";
+                        window.location.href = "/admin/jewelery";
                     }, 2000)
                 })
         })

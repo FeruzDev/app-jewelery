@@ -13,6 +13,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import routes from "../routes.js";
 
 import sidebarImage from "../assets/img/sidebar-3.jpg";
+import {connect} from "react-redux";
 
 function AdminLayout(props) {
     const [image, setImage] = React.useState(sidebarImage);
@@ -37,7 +38,7 @@ function AdminLayout(props) {
     return (
         <>
             <div className="wrapper">
-                <Sidebar color={color} image={hasImage ? image : ""} routes={routes}/>
+                <Sidebar color={color} image={hasImage ? image : ""} routes={props.user ? props.user.roles.length > 1 ? routes : routes.filter((item) => item.role === "worker") : []}/>
                 <div className="main-panel" ref={mainPanel}>
                     <AdminNavbar/>
                     <div className="content">
@@ -49,4 +50,10 @@ function AdminLayout(props) {
     );
 }
 
-export default AdminLayout;
+const mapStateToProps = (state) => {
+    return {
+        user: state.auth.user
+    }
+}
+
+export default connect(mapStateToProps, null)(AdminLayout);
