@@ -10,7 +10,9 @@ const initialState = {
     characteristics: [],
     selectedJewelery: null,
     totalElements: 0,
-    totalPages: 0
+    totalPages: 0,
+    serialSuccess: true,
+    isLoading: false
 }
 
 export const jeweleryReducer = (state = initialState, action) => {

@@ -17,10 +17,12 @@ const PrivateRoute = (props) => {
             if (props.role === "admin") {
                 role.filter(item => item.name === "ROLE_ADMIN").length > 0 ?
                     setShow(true) : setShow(false)
-            } else if (props.role === "director") {
-                role.filter(item => item.name === "ROLE_DIRECTOR").length > 0 ?
-                    setShow(true) : setShow(false)
-            } else if (props.role === "worker") {
+            }
+            // else if (props.role === "director") {
+            //     role.filter(item => item.name === "ROLE_DIRECTOR").length > 0 ?
+            //         setShow(true) : setShow(false)
+            // }
+            else if (props.role === "worker") {
                 role.filter(item => item.name === "ROLE_WORKER").length > 0 ?
                     setShow(true) : setShow(false)
             }

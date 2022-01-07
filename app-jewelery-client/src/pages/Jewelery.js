@@ -1,21 +1,24 @@
 import React, {useEffect} from 'react';
 import AdminLayout from "../layouts/AdminLayout";
 import {connect} from "react-redux";
-import {createJewelery, getJeweleries, updateState, uploadPhoto, deleteJewelery} from "../redux/actions/jeweleryAction";
+import {
+    createJewelery,
+    getJeweleries,
+    updateState,
+    uploadPhoto,
+    deleteJewelery,
+    checkSerial
+} from "../redux/actions/jeweleryAction";
 import {AvField, AvForm} from "availity-reactstrap-validation";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {API_PATH} from "../tools/constants";
 import PaginationComponent from "../components/PaginationComponent";
 
-
 const Jewelery = (props) => {
-
 
     useEffect(() => {
         props.getJeweleries(0);
     }, [])
-
-    console.log(props.characteristics);
 
     const getCharacteristics = (diamonds) => {
         return diamonds?.map((item, index) => {
@@ -31,13 +34,11 @@ const Jewelery = (props) => {
         props.getJeweleries(payload.page, "");
     }
 
-    console.log(props.diamonds)
-    console.log(props.characteristics)
     return (
         <AdminLayout>
             <div className="content">
                 <button type="button" className='btn btn-secondary my-3 d-block ml-auto'
-                        onClick={() => props.updateState({isOpen: true, photo: null, diamonds: [], characteristics: [], selectedJewelery: null,})}>Add Jewelery
+                        onClick={() => props.updateState({isOpen: true, photo: null, diamonds: [], characteristics: [], selectedJewelery: null, serialSuccess: true})}>Add Jewelery
                 </button>
 
                 <table className="table table-dark">
@@ -47,6 +48,7 @@ const Jewelery = (props) => {
                         <th>Фото</th>
                         <th>Название</th>
                         <th>Дата</th>
+                        <th>Эксперт</th>
 
                         <th>Посмотреть</th>
                         <th>Действия</th>
@@ -61,12 +63,13 @@ const Jewelery = (props) => {
                             <th>
                                 {item.date?.substr(0, 10)}
                             </th>
+                            <td>{item.expertFirstName} {item.expertLastName}</td>
                             <td>
                                 <a href={"http://gcu.uz/certificate/" + item.serial} target="_blank" className="btn btn-success">Посмотреть</a>
                             </td>
                             <td>
                                 <button type="button" className="btn btn-success mr-2" onClick={() => {props.updateState({nimadir: getCharacteristics(item.diamonds), isOpen: true, selectedJewelery: item, diamonds: item.diamonds, photo: item.photo, }); }}>Изменить</button>
-                                <button type="button" className="btn btn-danger" onClick={() => props.updateState({isOpenDelete: true, selectedId: item.id})}>Удалить</button>
+                                {props.user ? props.user.roles.length > 1 ? <button type="button" className="btn btn-danger" onClick={() => props.updateState({isOpenDelete: true, selectedId: item.id})}>Удалить</button> : "" : ""}
                             </td>
                         </tr>
                     ))}
@@ -80,10 +83,7 @@ const Jewelery = (props) => {
                 />
             </div>
 
-
-
-
-            <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false, diamonds: [], characteristics: [], selectedJewelery: null, photo: null})} className="bg-secondary">
+            <Modal isOpen={props.isOpen} toggle={() => props.updateState({isOpen: false, diamonds: [], characteristics: [], selectedJewelery: null, photo: null, serialSuccess: true})} className="bg-secondary">
                 <AvForm onValidSubmit={props.createJewelery} model={props.selectedJewelery ? {...props.selectedJewelery, date: props.selectedJewelery.date.substr(0, 10)}: {}}>
                     <ModalHeader className="bg-secondary">
                         Add Jewelery
@@ -104,6 +104,13 @@ const Jewelery = (props) => {
 
                         <input type="file" className="d-none"   id="file"
                                onChange={(e) => props.uploadPhoto(e.target.files[0])}/>
+
+                        {props.selectedJewelery ?
+                            <>
+                                <AvField type="number" name="serial" required label="Serial" onChange={(e) => props.checkSerial(e.target.value)}/>
+                                {!props.serialSuccess &&  <span className="text-danger">Jewelery with this serial exists</span>}
+                            </> : ""
+                        }
 
                         <AvField type="text" name="photo" value={props.photo} className="d-none"   required/>
                         <AvField type="text" name="name" label="Name" required/>
@@ -196,7 +203,10 @@ const mapStateToProps = (state) => {
         selectedJewelery: state.jewelery.selectedJewelery,
         page: state.jewelery.page,
         totalPages: state.jewelery.totalPages,
+        isLoading: state.jewelery.isLoading,
+        serialSuccess: state.jewelery.serialSuccess,
+        user: state.auth.user
     }
 }
 
-export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery, getJeweleries,deleteJewelery})(Jewelery);
+export default connect(mapStateToProps, {updateState, uploadPhoto, createJewelery, getJeweleries,deleteJewelery, checkSerial})(Jewelery);

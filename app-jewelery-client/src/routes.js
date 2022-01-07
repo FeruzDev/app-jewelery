@@ -19,6 +19,7 @@ const dashboardRoutes = [
     icon: "nc-icon nc-close-33",
     component: Upgrade,
     layout: "/admin",
+    role: 'admin'
   },
   {
     path: "/admin/users",
@@ -26,20 +27,22 @@ const dashboardRoutes = [
     icon: "fa fa-users",
     component: Dashboard,
     layout: "/admin",
+    role: 'admin'
   },
-  {
-    path: "/admin/workers",
-    name: "Workers",
-    icon: "fa fa-users",
-    component: UserProfile,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/admin/workers",
+  //   name: "Workers",
+  //   icon: "fa fa-users",
+  //   component: UserProfile,
+  //   layout: "/admin",
+  // },
   {
     path: "/admin/jewelery",
     name: "Jewelery",
     icon: "fa fa-ring",
     component: Jewelery,
     layout: "/admin",
+    role: 'worker'
   },
   {
     path: "/admin/data",
@@ -47,6 +50,8 @@ const dashboardRoutes = [
     icon: "fa fa-data",
     component: PageData,
     layout: "/admin",
+    role: 'admin'
+
   },
   {
     path: "/admin/logo",
@@ -54,6 +59,8 @@ const dashboardRoutes = [
     icon: "fa fa-photo",
     component: Logo,
     layout: "/admin",
+    role: 'admin'
+
   },
   // {
   //   path: "/table",

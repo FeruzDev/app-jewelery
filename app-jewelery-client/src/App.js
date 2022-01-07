@@ -43,10 +43,10 @@ function App(props) {
                 {/*<Route exact path="/admin" component={Admin}/>*/}
                 <Route exact path="/certificate/:id" component={Ser}/>
                 <PrivateRoute exact path="/admin/users" component={AdminUsers} role="admin"/>
-                <PrivateRoute exact path="/admin/workers" component={DirectorUsers} role="director"/>
-                <PrivateRoute exact path="/admin/jewelery" component={Jewelery} role="director"/>
-                <PrivateRoute exact path="/admin/data" component={PageData} role="director"/>
-                <PrivateRoute exact path="/admin/logo" component={Logo} role="director"/>
+                {/*<PrivateRoute exact path="/admin/workers" component={DirectorUsers} role="admin"/>*/}
+                <PrivateRoute exact path="/admin/jewelery" component={Jewelery} role="worker"/>
+                <PrivateRoute exact path="/admin/data" component={PageData} role="admin"/>
+                <PrivateRoute exact path="/admin/logo" component={Logo} role="admin"/>
 
                 <Route component={NotFound}/>
             </Switch>
